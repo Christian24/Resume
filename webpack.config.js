@@ -1,11 +1,12 @@
 module.exports = {
-  context: __dirname + "/",
+  context: __dirname,
      entry: "./index.js",
      output: {
-         path: __dirname + "/",
+         path: __dirname,
          filename: "bundle.js",
 
      },
+     devtool: 'source-map',
      module: {
        loaders: [
     {
