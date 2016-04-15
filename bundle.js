@@ -46,41 +46,30 @@
 
 	"use strict";
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(32);
 	var Resume = __webpack_require__(166);
 	
-	var App = function (_React$Component) {
-	  _inherits(App, _React$Component);
-	
-	  function App() {
-	    _classCallCheck(this, App);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
-	  }
-	
-	  _createClass(App, [{
-	    key: "render",
-	    value: function render() {
-	      return React.createElement(
-	        "div",
-	        null,
-	        React.createElement(Resume, null)
-	      );
-	    }
-	  }]);
-	
-	  return App;
-	}(React.Component);
-	
+	var App = React.createClass({
+		displayName: "App",
+		getInitialState: function getInitialState() {
+			return { resumes: {}, currentResume: 0 };
+		},
+		loadData: function loadData() {
+			this.setState({ resumes: __webpack_require__(168), currentResume: 0 });
+			console.log("Initial state set");
+		},
+		componentDidMount: function componentDidMount() {
+			this.loadData();
+		},
+		render: function render() {
+			return React.createElement(
+				"div",
+				null,
+				React.createElement(Resume, null)
+			);
+		}
+	});
 	ReactDOM.render(React.createElement(App, null), document.getElementById("target"));
 
 /***/ },
@@ -20053,28 +20042,92 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(1);
+	var ResumeHeader = __webpack_require__(167);
 	module.exports = function (_React$Component) {
-	  _inherits(Resume, _React$Component);
+		_inherits(Resume, _React$Component);
 	
-	  function Resume() {
-	    _classCallCheck(this, Resume);
+		function Resume() {
+			_classCallCheck(this, Resume);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Resume).apply(this, arguments));
-	  }
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Resume).apply(this, arguments));
+		}
 	
-	  _createClass(Resume, [{
-	    key: "render",
-	    value: function render() {
-	      return React.createElement(
-	        "h1",
-	        null,
-	        "Hello Resume!"
-	      );
-	    }
-	  }]);
+		_createClass(Resume, [{
+			key: "render",
+			value: function render() {
+				return React.createElement(
+					"div",
+					null,
+					React.createElement(ResumeHeader, null)
+				);
+			}
+		}]);
 	
-	  return Resume;
+		return Resume;
 	}(React.Component);
+
+/***/ },
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(1);
+	module.exports = function (_React$Component) {
+		_inherits(ResumeHeader, _React$Component);
+	
+		function ResumeHeader() {
+			_classCallCheck(this, ResumeHeader);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(ResumeHeader).apply(this, arguments));
+		}
+	
+		_createClass(ResumeHeader, [{
+			key: "render",
+			value: function render() {
+				return React.createElement(
+					"div",
+					null,
+					React.createElement(
+						"h1",
+						null,
+						"Header"
+					)
+				);
+			}
+		}]);
+	
+		return ResumeHeader;
+	}(React.Component);
+
+/***/ },
+/* 168 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	module.exports = {
+		resumeEN: {
+			personalDetails: {
+				name: "Christian Siebmanns",
+				email: "christian.siebmanns@hotmail.de",
+				telephone: "+49 (0151) 2919-0609",
+				street: "Spiekerhof 2",
+				city: "Münster",
+				postal: "48143",
+				country: "Germany"
+	
+			}
+		}
+	};
 
 /***/ }
 /******/ ]);

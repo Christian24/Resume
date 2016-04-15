@@ -1,6 +1,11 @@
 let React = require("react");
+let ResumeHeader = require("./resumeHeader.jsx");
 module.exports = class Resume extends React.Component {
   render() {
-    return <h1>Hello Resume!</h1>;
+  	return(
+	 <div>
+		 <ResumeHeader />
+	 </div>
+		);
   }
 };
