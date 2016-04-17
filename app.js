@@ -6,7 +6,7 @@ import {resumeEn, personalDetails, languagesData} from "./resumeData";
 
 let App = React.createClass ({
 	getInitialState() {
-		return { resumes: {}, currentResume: {}, person: {} };
+		return { resumes: {}, currentResume: {}, person: {}, languages: {} };
 	},
 	loadData() {
 		//let resumes = require("./resumeData");
@@ -34,10 +34,12 @@ let App = React.createClass ({
 
 		let assigned = resumeEn;
 		console.log(assigned.personalDetails.email);
-
-		this.setState({  currentResume: assigned, person: personalDetails, languages: languagesData });
+		console.log(languagesData.french.name);
+		this.setState({  currentResume: assigned, person: personalDetails, languages: languagesData}, function() {
+			console.log(this.state.languages.french.name);
+		});
 		//update(currentResume, {personalDetails: $set:{personalDetails}});
-		console.log(this.state.currentResume);
+		
 	},
 	getCurrentResume() {
 		//console.log(this.props.currentResume);
@@ -46,7 +48,7 @@ let App = React.createClass ({
 
 	componentDidMount() {
 		this.loadData();
-		console.log(this.state.currentResume);
+		
 	},
 
 	render() {

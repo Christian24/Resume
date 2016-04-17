@@ -57,7 +57,7 @@
 	var App = React.createClass({
 		displayName: "App",
 		getInitialState: function getInitialState() {
-			return { resumes: {}, currentResume: {}, person: {} };
+			return { resumes: {}, currentResume: {}, person: {}, languages: {} };
 		},
 		loadData: function loadData() {
 			//let resumes = require("./resumeData");
@@ -84,10 +84,11 @@
 	
 			var assigned = _resumeData.resumeEn;
 			console.log(assigned.personalDetails.email);
-	
-			this.setState({ currentResume: assigned, person: _resumeData.personalDetails, languages: _resumeData.languagesData });
+			console.log(_resumeData.languagesData.french.name);
+			this.setState({ currentResume: assigned, person: _resumeData.personalDetails, languages: _resumeData.languagesData }, function () {
+				console.log(this.state.languages.french.name);
+			});
 			//update(currentResume, {personalDetails: $set:{personalDetails}});
-			console.log(this.state.currentResume);
 		},
 		getCurrentResume: function getCurrentResume() {
 			//console.log(this.props.currentResume);
@@ -95,7 +96,6 @@
 		},
 		componentDidMount: function componentDidMount() {
 			this.loadData();
-			console.log(this.state.currentResume);
 		},
 		render: function render() {
 			return React.createElement(
@@ -20305,7 +20305,9 @@
 		_createClass(Languages, [{
 			key: "renderLanguage",
 			value: function renderLanguage(key) {
-				return React.createElement(Language, { details: this.props.languages[key] });
+				console.log(this);
+				//return <Language details={this.props.languages[key]} />
+				return false;
 			}
 		}, {
 			key: "render",
@@ -20322,9 +20324,9 @@
 					React.createElement(
 						"ul",
 						{ className: "list-inline" },
-						console.log(this.props.languages)
-						//Object.keys(this.props.languages).map(renderLanguage)
 	
+						//console.log(this.props.languages)
+						Object.keys(this.props.languages).map(this.renderLanguage)
 					)
 				);
 			}
