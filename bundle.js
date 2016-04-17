@@ -20588,16 +20588,25 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(3);
+	var Description = __webpack_require__(176);
 	module.exports = function (_React$Component) {
 		_inherits(Job, _React$Component);
 	
-		function Job() {
+		function Job(props) {
 			_classCallCheck(this, Job);
 	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Job).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Job).call(this, props));
+	
+			_this.renderDescription = _this.renderDescription.bind(_this);
+			return _this;
 		}
 	
 		_createClass(Job, [{
+			key: "renderDescription",
+			value: function renderDescription(key) {
+				return React.createElement(Description, { key: key, index: key, text: this.props.details.descriptions[key] });
+			}
+		}, {
 			key: "render",
 			value: function render() {
 				return React.createElement(
@@ -20610,12 +20619,55 @@
 						", ",
 						this.props.details.company,
 						" "
+					),
+					React.createElement(
+						"ul",
+						null,
+						Object.keys(this.props.details.descriptions).map(this.renderDescription)
 					)
 				);
 			}
 		}]);
 	
 		return Job;
+	}(React.Component);
+
+/***/ },
+/* 176 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(3);
+	module.exports = function (_React$Component) {
+		_inherits(Description, _React$Component);
+	
+		function Description() {
+			_classCallCheck(this, Description);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Description).apply(this, arguments));
+		}
+	
+		_createClass(Description, [{
+			key: "render",
+			value: function render() {
+				return React.createElement(
+					"li",
+					null,
+					this.props.text
+				);
+			}
+		}]);
+	
+		return Description;
 	}(React.Component);
 
 /***/ }
