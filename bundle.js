@@ -57,7 +57,7 @@
 	var App = React.createClass({
 		displayName: "App",
 		getInitialState: function getInitialState() {
-			return { resumes: {}, currentResume: {}, person: {}, languages: {} };
+			return { resumes: {}, currentResume: {}, person: {}, languages: {}, categories: {} };
 		},
 		loadData: function loadData() {
 			//let resumes = require("./resumeData");
@@ -83,9 +83,8 @@
 			//};
 	
 			var assigned = _resumeData.resumeEn;
-			console.log(assigned.personalDetails.email);
-			console.log(_resumeData.languagesData.french.name);
-			this.setState({ currentResume: assigned, person: _resumeData.personalDetails, languages: _resumeData.languagesData }, function () {
+	
+			this.setState({ currentResume: assigned, person: _resumeData.personalDetails, languages: _resumeData.languagesData, categories: _resumeData.categoriesData }, function () {
 				console.log(this.state.languages.french.name);
 			});
 			//update(currentResume, {personalDetails: $set:{personalDetails}});
@@ -101,7 +100,7 @@
 			return React.createElement(
 				"div",
 				null,
-				React.createElement(Resume, { currentResume: this.state.currentResume, person: this.state.person, languages: this.state.languages })
+				React.createElement(Resume, { currentResume: this.state.currentResume, person: this.state.person, languages: this.state.languages, categories: this.state.categories })
 			);
 		}
 	});
@@ -116,7 +115,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.languagesData = exports.resumeEn = exports.personalDetails = exports.ResumeData = undefined;
+	exports.categoriesData = exports.languagesData = exports.resumeEn = exports.personalDetails = exports.ResumeData = undefined;
 	
 	var _PersonalDetails = __webpack_require__(2);
 	
@@ -165,6 +164,19 @@
 			description: "native"
 		}
 	
+	};
+	var categoriesData = exports.categoriesData = {
+		entrepeneurial: { name: "ENTREPENEURIAL EXPERIENCE",
+			items: {
+				wheelom: {
+					role: "Lead Developer",
+					company: "Wheelom",
+					start: "Feb. 2012 ",
+					end: "Present",
+					descriptions: ["Designed and developed Wheelom, a 3D mobile game featured on front-page of Windows Phone Store", "Continued development of updates, follow-up games, and content for in-game purchases", "Published Wheelom for iOS, Windows Phone, Windows Store and monetized with optimal revenue model for each platform, including Freemium (free with in-game purchases), free trial, in-game ads, and sales", "Recruited, hired, and managed team of programmers, artists, and testers in developing the game and the proprietary game engine and development tools used to build it", "Designed and personally implemented www.wheelom.com website and lead viral marketing of game"]
+				}
+			}
+		}
 	};
 
 /***/ },
@@ -20164,23 +20176,33 @@
 	
 	var React = __webpack_require__(3);
 	var ResumeHeader = __webpack_require__(169);
+	var Category = __webpack_require__(174);
 	var Languages = __webpack_require__(170);
 	module.exports = function (_React$Component) {
 		_inherits(Resume, _React$Component);
 	
-		function Resume() {
+		function Resume(props) {
 			_classCallCheck(this, Resume);
 	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Resume).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Resume).call(this, props));
+	
+			_this.renderCategory = _this.renderCategory.bind(_this);
+			return _this;
 		}
 	
 		_createClass(Resume, [{
+			key: "renderCategory",
+			value: function renderCategory(key) {
+				return React.createElement(Category, { key: key, index: key, details: this.props.categories[key] });
+			}
+		}, {
 			key: "render",
 			value: function render() {
 				return React.createElement(
 					"div",
 					null,
 					React.createElement(ResumeHeader, { title: this.props.currentResume.title, person: this.props.person }),
+					Object.keys(this.props.categories).map(this.renderCategory),
 					React.createElement(Languages, { title: this.props.currentResume.languages, languages: this.props.languages })
 				);
 			}
@@ -20496,6 +20518,104 @@
 		}]);
 	
 		return Language;
+	}(React.Component);
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(3);
+	var Job = __webpack_require__(175);
+	module.exports = function (_React$Component) {
+		_inherits(Category, _React$Component);
+	
+		function Category(props) {
+			_classCallCheck(this, Category);
+	
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Category).call(this, props));
+	
+			_this.renderJob = _this.renderJob.bind(_this);
+			return _this;
+		}
+	
+		_createClass(Category, [{
+			key: "renderJob",
+			value: function renderJob(key) {
+				return React.createElement(Job, { key: key, index: key, details: this.props.details.items[key] });
+			}
+		}, {
+			key: "render",
+			value: function render() {
+				return React.createElement(
+					"div",
+					null,
+					React.createElement(
+						"h3",
+						null,
+						this.props.details.name,
+						" "
+					),
+					Object.keys(this.props.details.items).map(this.renderJob)
+				);
+			}
+		}]);
+	
+		return Category;
+	}(React.Component);
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(3);
+	module.exports = function (_React$Component) {
+		_inherits(Job, _React$Component);
+	
+		function Job() {
+			_classCallCheck(this, Job);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Job).apply(this, arguments));
+		}
+	
+		_createClass(Job, [{
+			key: "render",
+			value: function render() {
+				return React.createElement(
+					"div",
+					null,
+					React.createElement(
+						"h4",
+						null,
+						this.props.details.role,
+						", ",
+						this.props.details.company,
+						" "
+					)
+				);
+			}
+		}]);
+	
+		return Job;
 	}(React.Component);
 
 /***/ }

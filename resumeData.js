@@ -40,3 +40,22 @@ export let languagesData = {
 	}
 
 };
+export let categoriesData = {
+	entrepeneurial: {name: "ENTREPENEURIAL EXPERIENCE",
+		items: {
+			wheelom: {
+				role: "Lead Developer",
+				company: "Wheelom",
+				start: "Feb. 2012 ",
+				end: "Present",
+				descriptions: [
+					"Designed and developed Wheelom, a 3D mobile game featured on front-page of Windows Phone Store",
+					"Continued development of updates, follow-up games, and content for in-game purchases",
+					"Published Wheelom for iOS, Windows Phone, Windows Store and monetized with optimal revenue model for each platform, including Freemium (free with in-game purchases), free trial, in-game ads, and sales",
+					"Recruited, hired, and managed team of programmers, artists, and testers in developing the game and the proprietary game engine and development tools used to build it",
+					"Designed and personally implemented www.wheelom.com website and lead viral marketing of game"
+				]
+			}
+		}
+	}
+};
