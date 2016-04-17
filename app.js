@@ -2,7 +2,7 @@ const React = require("react");
 const ReactDOM = require("react-dom");
 const Resume = require("./resume.jsx");
 const update = require("react-addons-update");
-import {resumeEn, personalDetails} from "./resumeData";
+import {resumeEn, personalDetails, languagesData} from "./resumeData";
 
 let App = React.createClass ({
 	getInitialState() {
@@ -35,7 +35,7 @@ let App = React.createClass ({
 		let assigned = resumeEn;
 		console.log(assigned.personalDetails.email);
 
-		this.setState({  currentResume: assigned, person: personalDetails });
+		this.setState({  currentResume: assigned, person: personalDetails, languages: languagesData });
 		//update(currentResume, {personalDetails: $set:{personalDetails}});
 		console.log(this.state.currentResume);
 	},
@@ -50,7 +50,7 @@ let App = React.createClass ({
 	},
 
 	render() {
-		return (<div><Resume currentResume={this.state.currentResume} person={this.state.person} /></div>);
+		return (<div><Resume currentResume={this.state.currentResume} person={this.state.person} languages={this.state.languages} /></div>);
 }
 });
 ReactDOM.render(<App />, document.getElementById("target"));
