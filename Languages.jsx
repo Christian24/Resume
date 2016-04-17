@@ -1,10 +1,14 @@
 ﻿let React = require("react");
 let Language = require("./language.jsx");
 module.exports = class Languages extends React.Component {
+	constructor(props) {
+		super(props);
+		this.renderLanguage = this.renderLanguage.bind(this);
+	}
 	renderLanguage(key) {
-		console.log(this);
-		//return <Language details={this.props.languages[key]} />
-		return false;
+		
+		return <Language key={key} index={key} details={this.props.languages[key]} />
+		
 	}
 	render() {
 		return (<div>

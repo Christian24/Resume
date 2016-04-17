@@ -20296,18 +20296,20 @@
 	module.exports = function (_React$Component) {
 		_inherits(Languages, _React$Component);
 	
-		function Languages() {
+		function Languages(props) {
 			_classCallCheck(this, Languages);
 	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Languages).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Languages).call(this, props));
+	
+			_this.renderLanguage = _this.renderLanguage.bind(_this);
+			return _this;
 		}
 	
 		_createClass(Languages, [{
 			key: "renderLanguage",
 			value: function renderLanguage(key) {
-				console.log(this);
-				//return <Language details={this.props.languages[key]} />
-				return false;
+	
+				return React.createElement(Language, { key: key, index: key, details: this.props.languages[key] });
 			}
 		}, {
 			key: "render",
@@ -20485,7 +20487,10 @@
 				return React.createElement(
 					"li",
 					null,
-					this.props.details.name(this.props.details.description)
+					this.props.details.name,
+					" (",
+					this.props.details.description,
+					")"
 				);
 			}
 		}]);
