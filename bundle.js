@@ -20204,6 +20204,18 @@
 						" ",
 						this.props.person.name,
 						"  "
+					),
+					React.createElement(
+						"p",
+						null,
+						this.props.person.address,
+						" ",
+						this.props.person.postal,
+						" ",
+						this.props.person.city,
+						", ",
+						this.props.person.country,
+						"|"
 					)
 				);
 			}
