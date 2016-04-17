@@ -20206,16 +20206,41 @@
 						"  "
 					),
 					React.createElement(
-						"p",
-						null,
-						this.props.person.address,
-						" ",
-						this.props.person.postal,
-						" ",
-						this.props.person.city,
-						", ",
-						this.props.person.country,
-						"|"
+						"ul",
+						{ className: "list-inline" },
+						React.createElement(
+							"li",
+							null,
+							" ",
+							this.props.person.address,
+							" ",
+							this.props.person.postal,
+							" ",
+							this.props.person.city,
+							", ",
+							this.props.person.country
+						),
+						React.createElement(
+							"li",
+							null,
+							" ",
+							React.createElement(
+								"a",
+								{ href: "tel:{this.props.person.telephone}" },
+								this.props.person.telephone
+							),
+							" "
+						),
+						React.createElement(
+							"li",
+							null,
+							" ",
+							React.createElement(
+								"a",
+								{ href: "mailto:{this.props.person.email}" },
+								this.props.person.email
+							)
+						)
 					)
 				);
 			}
