@@ -68,7 +68,7 @@ export let categoriesData = {
 				start: "Dec 2015",
 				end: "Present",
 				descriptions: [
-					"Developed calendar web application for Münster University of Applied Sciences’s economics student association new website"
+					"Developed calendar web application for Münster University of Applied Sciences’s economics student association's new website"
 				]
 			},
 			qualityImprovement: {

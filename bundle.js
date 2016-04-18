@@ -51,7 +51,7 @@
 	var React = __webpack_require__(3);
 	var ReactDOM = __webpack_require__(34);
 	var Resume = __webpack_require__(168);
-	var update = __webpack_require__(179);
+	var update = __webpack_require__(181);
 	
 	
 	var App = React.createClass({
@@ -187,7 +187,7 @@
 					company: "Münster University of Applied Sciences's Economics Association",
 					start: "Dec 2015",
 					end: "Present",
-					descriptions: ["Developed calendar web application for Münster University of Applied Sciences’s economics student association new website"]
+					descriptions: ["Developed calendar web application for Münster University of Applied Sciences’s economics student association's new website"]
 				},
 				qualityImprovement: {
 					role: "Quality Improvement Commission",
@@ -20267,9 +20267,9 @@
 	var React = __webpack_require__(3);
 	var ResumeHeader = __webpack_require__(169);
 	var Category = __webpack_require__(170);
-	var Languages = __webpack_require__(173);
-	var Educations = __webpack_require__(175);
-	var Technologies = __webpack_require__(177);
+	var Languages = __webpack_require__(175);
+	var Educations = __webpack_require__(177);
+	var Technologies = __webpack_require__(179);
 	
 	module.exports = function (_React$Component) {
 		_inherits(Resume, _React$Component);
@@ -20293,7 +20293,7 @@
 			value: function render() {
 				return React.createElement(
 					"div",
-					null,
+					{ className: "container" },
 					React.createElement(ResumeHeader, { title: this.props.currentResume.title, person: this.props.person }),
 					Object.keys(this.props.categories).map(this.renderCategory),
 					React.createElement(Educations, { title: this.props.currentResume.education, educations: this.props.educations }),
@@ -20410,7 +20410,7 @@
 	
 	var React = __webpack_require__(3);
 	var Job = __webpack_require__(171);
-	var Heading = __webpack_require__(181);
+	var Heading = __webpack_require__(174);
 	module.exports = function (_React$Component) {
 		_inherits(Category, _React$Component);
 	
@@ -20459,7 +20459,7 @@
 	
 	var React = __webpack_require__(3);
 	var Description = __webpack_require__(172);
-	var Subheading = __webpack_require__(182);
+	var Subheading = __webpack_require__(173);
 	module.exports = function (_React$Component) {
 		_inherits(Job, _React$Component);
 	
@@ -20549,8 +20549,95 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(3);
-	var Language = __webpack_require__(174);
-	var Heading = __webpack_require__(181);
+	module.exports = function (_React$Component) {
+		_inherits(Subheading, _React$Component);
+	
+		function Subheading() {
+			_classCallCheck(this, Subheading);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Subheading).apply(this, arguments));
+		}
+	
+		_createClass(Subheading, [{
+			key: "render",
+			value: function render() {
+				return React.createElement(
+					"p",
+					null,
+					React.createElement(
+						"strong",
+						null,
+						this.props.first
+					),
+					", ",
+					React.createElement(
+						"u",
+						null,
+						this.props.second
+					),
+					" "
+				);
+			}
+		}]);
+	
+		return Subheading;
+	}(React.Component);
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(3);
+	module.exports = function (_React$Component) {
+		_inherits(Heading, _React$Component);
+	
+		function Heading() {
+			_classCallCheck(this, Heading);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Heading).apply(this, arguments));
+		}
+	
+		_createClass(Heading, [{
+			key: "render",
+			value: function render() {
+				return React.createElement(
+					"h3",
+					null,
+					this.props.title
+				);
+			}
+		}]);
+	
+		return Heading;
+	}(React.Component);
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(3);
+	var Language = __webpack_require__(176);
+	var Heading = __webpack_require__(174);
 	module.exports = function (_React$Component) {
 		_inherits(Languages, _React$Component);
 	
@@ -20591,7 +20678,7 @@
 	}(React.Component);
 
 /***/ },
-/* 174 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20632,7 +20719,7 @@
 	}(React.Component);
 
 /***/ },
-/* 175 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20646,8 +20733,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(3);
-	var Education = __webpack_require__(176);
-	var Heading = __webpack_require__(181);
+	var Education = __webpack_require__(178);
+	var Heading = __webpack_require__(174);
 	module.exports = function (_React$Component) {
 		_inherits(Educations, _React$Component);
 	
@@ -20681,7 +20768,7 @@
 	}(React.Component);
 
 /***/ },
-/* 176 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20695,7 +20782,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(3);
-	var Subheading = __webpack_require__(182);
+	var Subheading = __webpack_require__(173);
 	module.exports = function (_React$Component) {
 		_inherits(Education, _React$Component);
 	
@@ -20720,7 +20807,7 @@
 	}(React.Component);
 
 /***/ },
-/* 177 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20734,8 +20821,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(3);
-	var Technology = __webpack_require__(178);
-	var Heading = __webpack_require__(181);
+	var Technology = __webpack_require__(180);
+	var Heading = __webpack_require__(174);
 	module.exports = function (_React$Component) {
 		_inherits(Technologies, _React$Component);
 	
@@ -20769,7 +20856,7 @@
 	}(React.Component);
 
 /***/ },
-/* 178 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20784,6 +20871,7 @@
 	
 	var React = __webpack_require__(3);
 	var Description = __webpack_require__(172);
+	var SmallHeading = __webpack_require__(183);
 	module.exports = function (_React$Component) {
 		_inherits(Technology, _React$Component);
 	
@@ -20807,11 +20895,7 @@
 				return React.createElement(
 					"div",
 					null,
-					React.createElement(
-						"h7",
-						null,
-						this.props.details.name
-					),
+					React.createElement(SmallHeading, { title: this.props.details.name }),
 					React.createElement(
 						"ul",
 						{ className: "list-inline" },
@@ -20825,13 +20909,13 @@
 	}(React.Component);
 
 /***/ },
-/* 179 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(180);
+	module.exports = __webpack_require__(182);
 
 /***/ },
-/* 180 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -20945,7 +21029,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 181 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20960,75 +21044,26 @@
 	
 	var React = __webpack_require__(3);
 	module.exports = function (_React$Component) {
-		_inherits(Heading, _React$Component);
+		_inherits(SmallHeading, _React$Component);
 	
-		function Heading() {
-			_classCallCheck(this, Heading);
+		function SmallHeading() {
+			_classCallCheck(this, SmallHeading);
 	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Heading).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(SmallHeading).apply(this, arguments));
 		}
 	
-		_createClass(Heading, [{
+		_createClass(SmallHeading, [{
 			key: "render",
 			value: function render() {
 				return React.createElement(
-					"h3",
+					"i",
 					null,
 					this.props.title
 				);
 			}
 		}]);
 	
-		return Heading;
-	}(React.Component);
-
-/***/ },
-/* 182 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var React = __webpack_require__(3);
-	module.exports = function (_React$Component) {
-		_inherits(Subheading, _React$Component);
-	
-		function Subheading() {
-			_classCallCheck(this, Subheading);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Subheading).apply(this, arguments));
-		}
-	
-		_createClass(Subheading, [{
-			key: "render",
-			value: function render() {
-				return React.createElement(
-					"p",
-					null,
-					React.createElement(
-						"strong",
-						null,
-						this.props.first
-					),
-					", ",
-					React.createElement(
-						"u",
-						null,
-						this.props.second
-					),
-					" "
-				);
-			}
-		}]);
-	
-		return Subheading;
+		return SmallHeading;
 	}(React.Component);
 
 /***/ }
