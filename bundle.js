@@ -20483,7 +20483,7 @@
 				return React.createElement(
 					"div",
 					null,
-					React.createElement(Subheading, { first: this.props.details.role, second: this.props.details.company }),
+					React.createElement(Subheading, { first: this.props.details.role, second: this.props.details.company, start: this.props.details.start, end: this.props.details.end }),
 					React.createElement(
 						"ul",
 						null,
@@ -20581,6 +20581,13 @@
 						"u",
 						null,
 						this.props.second
+					),
+					React.createElement(
+						"span",
+						{ className: "pull-right" },
+						this.props.start,
+						" - ",
+						this.props.end
 					),
 					" "
 				);
