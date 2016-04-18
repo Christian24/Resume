@@ -1,5 +1,5 @@
 ﻿let React = require("react");
-let Language = require("./language.jsx");
+let Description = require("./description.jsx");
 let Heading = require("./heading.jsx");
 module.exports = class Languages extends React.Component {
 	constructor(props) {
@@ -7,8 +7,9 @@ module.exports = class Languages extends React.Component {
 		this.renderLanguage = this.renderLanguage.bind(this);
 	}
 	renderLanguage(key) {
-		
-		return <Language key={key} index={key} details={this.props.languages[key]} isSkill={true} skillClass="skill-language" />
+		let lang = this.props.languages[key];
+		let text = lang.name + " (" + lang.description + ")";
+		return <Description key={key} index={key} text={text} isSkill={true} skillClass="skill-language" />
 		
 	}
 	render() {

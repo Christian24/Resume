@@ -26,7 +26,7 @@ export let personalDetails = new PersonalDetails("Christian Siebmanns","christia
 export let resumeEn = new ResumeData("Resume",personalDetails, "Languages", "Education", "Technologies");
 export let languagesData = {
 	english:{name: "English",
-	description: "fluent, 5 years, Cambridge ESOL Level 2 Grade C1"
+		description: "Fluent, 12 years, Cambridge Advanced English, Level C1"
 },
 	french: {
 		name: "French",

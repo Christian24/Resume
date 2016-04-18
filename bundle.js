@@ -152,7 +152,7 @@
 	var resumeEn = exports.resumeEn = new ResumeData("Resume", personalDetails, "Languages", "Education", "Technologies");
 	var languagesData = exports.languagesData = {
 		english: { name: "English",
-			description: "fluent, 5 years, Cambridge ESOL Level 2 Grade C1"
+			description: "Fluent, 12 years, Cambridge Advanced English, Level C1"
 		},
 		french: {
 			name: "French",
@@ -20341,6 +20341,8 @@
 		_createClass(ResumeHeader, [{
 			key: "render",
 			value: function render() {
+				var mailLink = "mailto:" + this.props.person.email;
+				var telLink = "tel:" + this.props.person.telephone;
 				return React.createElement(
 					"div",
 					null,
@@ -20362,7 +20364,7 @@
 							React.createElement("span", { className: "glyphicon glyphicon-home", "aria-hidden": "true" }),
 							" ",
 							this.props.person.address,
-							" ",
+							", ",
 							this.props.person.postal,
 							" ",
 							this.props.person.city,
@@ -20377,7 +20379,7 @@
 							" ",
 							React.createElement(
 								"a",
-								{ href: "tel:{this.props.person.telephone}" },
+								{ href: telLink },
 								this.props.person.telephone
 							),
 							" "
@@ -20390,7 +20392,7 @@
 							" ",
 							React.createElement(
 								"a",
-								{ href: "mailto:{this.props.person.email}" },
+								{ href: mailLink },
 								this.props.person.email
 							)
 						)
@@ -20658,7 +20660,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(3);
-	var Language = __webpack_require__(176);
+	var Description = __webpack_require__(172);
 	var Heading = __webpack_require__(174);
 	module.exports = function (_React$Component) {
 		_inherits(Languages, _React$Component);
@@ -20675,8 +20677,9 @@
 		_createClass(Languages, [{
 			key: "renderLanguage",
 			value: function renderLanguage(key) {
-	
-				return React.createElement(Language, { key: key, index: key, details: this.props.languages[key], isSkill: true, skillClass: "skill-language" });
+				var lang = this.props.languages[key];
+				var text = lang.name + " (" + lang.description + ")";
+				return React.createElement(Description, { key: key, index: key, text: text, isSkill: true, skillClass: "skill-language" });
 			}
 		}, {
 			key: "render",
@@ -20700,52 +20703,7 @@
 	}(React.Component);
 
 /***/ },
-/* 176 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var React = __webpack_require__(3);
-	var classNames = __webpack_require__(185);
-	module.exports = function (_React$Component) {
-		_inherits(Language, _React$Component);
-	
-		function Language() {
-			_classCallCheck(this, Language);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Language).apply(this, arguments));
-		}
-	
-		_createClass(Language, [{
-			key: "render",
-			value: function render() {
-				var classes = classNames({
-					"skill": this.props.isSkill
-	
-				}, this.props.skillClass);
-				return React.createElement(
-					"li",
-					{ className: classes },
-					this.props.details.name,
-					" (",
-					this.props.details.description,
-					")"
-				);
-			}
-		}]);
-	
-		return Language;
-	}(React.Component);
-
-/***/ },
+/* 176 */,
 /* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
