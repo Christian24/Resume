@@ -190,11 +190,11 @@
 					descriptions: ["Developed calendar web application for Münster University of Applied Sciences’s economics student association's new website"]
 				},
 				qualityImprovement: {
-					role: "Quality Improvement Commission",
+					role: "Quality Improvement",
 					company: "Münster University of Applied Sciences",
 					start: "Oct 2015",
 					end: "Present",
-					descriptions: ["Voted on budgeting proposals as part of committee responsible for improvement of educational quality"]
+					descriptions: ["Proposed budgets and reviewed project proposals as part of committee responsible for improvement of educational quality"]
 				},
 				dio: {
 					role: "Web Developer",
@@ -231,8 +231,9 @@
 	var educationsData = exports.educationsData = {
 		fh: {
 			college: "Münster University of Applied Sciences",
-			degree: "Business Informatics B.Sc.",
-			text: "Expected Graduation: Sep 2017"
+			degree: "B.S., Business Informatics",
+			text: "Expected Graduation: Sep 2017",
+			additional: "Current grade: 2.2 - Good - Semester: 4/6"
 		}
 	};
 	var technologiesData = exports.technologiesData = {
@@ -20637,6 +20638,9 @@
 				if (this.props.start && this.props.end) {
 					text = this.props.start + " - " + this.props.end;
 				}
+				if (this.props.text) {
+					text = this.props.text;
+				}
 				return React.createElement(
 					"p",
 					null,
@@ -20840,11 +20844,11 @@
 				return React.createElement(
 					"div",
 					null,
-					React.createElement(Subheading, { first: this.props.details.degree, second: this.props.details.college }),
+					React.createElement(Subheading, { first: this.props.details.degree, second: this.props.details.college, text: this.props.details.text }),
 					React.createElement(
 						"ul",
 						null,
-						React.createElement(Description, { text: this.props.details.text })
+						React.createElement(Description, { text: this.props.details.additional })
 					)
 				);
 			}

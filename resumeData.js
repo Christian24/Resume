@@ -72,12 +72,12 @@ export let categoriesData = {
 				]
 			},
 			qualityImprovement: {
-				role: "Quality Improvement Commission",
+				role: "Quality Improvement",
 				company: "Münster University of Applied Sciences",
 				start: "Oct 2015",
 				end: "Present",
 				descriptions: [
-					"Voted on budgeting proposals as part of committee responsible for improvement of educational quality"
+					"Proposed budgets and reviewed project proposals as part of committee responsible for improvement of educational quality"
 				]
 			},
 			dio: {
@@ -125,8 +125,9 @@ export let categoriesData = {
 export let educationsData = {
 	fh: {
 		college: "Münster University of Applied Sciences",
-		degree: "Business Informatics B.Sc.",
-		text: "Expected Graduation: Sep 2017" 
+		degree: "B.S., Business Informatics",
+		text: "Expected Graduation: Sep 2017",
+		additional: "Current grade: 2.2 - Good - Semester: 4/6",
 	}
 };
 export let technologiesData = {
