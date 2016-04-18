@@ -10,7 +10,7 @@ module.exports = class Educations extends React.Component {
 	}
 	render() {
 		return (<div>
-		<h3>Education</h3>
+	<h3>{this.props.title}</h3>
 			  	{Object.keys(this.props.educations).map(this.renderEducation)}
 		</div>);
 	}

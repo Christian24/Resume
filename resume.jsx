@@ -17,9 +17,9 @@ module.exports = class Resume extends React.Component {
 	 <div>
 		 <ResumeHeader title={this.props.currentResume.title} person={this.props.person} />
 	 	{Object.keys(this.props.categories).map(this.renderCategory)}
-		   <Educations  educations={this.props.educations} />
+		   <Educations title={this.props.currentResume.education}  educations={this.props.educations} />
 		  <Languages title={this.props.currentResume.languages} languages={this.props.languages} />
-		 <Technologies  technologies={this.props.technologies} />
+		 <Technologies title={this.props.currentResume.technologies}  technologies={this.props.technologies} />
 	 </div>
 		);
 	}

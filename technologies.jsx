@@ -10,7 +10,7 @@ module.exports = class Technologies extends React.Component {
 	}
 	render() {
 		return (<div>
-		<h3>Technologies</h3>
+		<h3>{this.props.title}</h3>
 			
 			  		{Object.keys(this.props.technologies).map(this.renderTechnology)}
 					  
