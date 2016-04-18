@@ -120,3 +120,10 @@ export let categoriesData = {
 	}
 
 };
+export let educationsData = {
+	fh: {
+		college: "Münster University of Applied Sciences",
+		degree: "Business Informatics",
+		text: "Expected Graduation: Sep 2017" 
+	}
+};

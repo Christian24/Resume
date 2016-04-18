@@ -2,11 +2,11 @@ const React = require("react");
 const ReactDOM = require("react-dom");
 const Resume = require("./resume.jsx");
 const update = require("react-addons-update");
-import {resumeEn, personalDetails, languagesData, categoriesData} from "./resumeData";
+import {resumeEn, personalDetails, languagesData, categoriesData, educationsData} from "./resumeData";
 
 let App = React.createClass ({
 	getInitialState() {
-		return { resumes: {}, currentResume: {}, person: {}, languages: {}, categories: {} };
+		return { resumes: {}, currentResume: {}, person: {}, languages: {}, categories: {}, educations: {} };
 	},
 	loadData() {
 		//let resumes = require("./resumeData");
@@ -34,7 +34,7 @@ let App = React.createClass ({
 
 		let assigned = resumeEn;
 		
-		this.setState({  currentResume: assigned, person: personalDetails, languages: languagesData, categories: categoriesData}, function() {
+		this.setState({  currentResume: assigned, person: personalDetails, languages: languagesData, categories: categoriesData, educations: educationsData}, function() {
 			console.log(this.state.languages.french.name);
 		});
 		//update(currentResume, {personalDetails: $set:{personalDetails}});
@@ -51,7 +51,7 @@ let App = React.createClass ({
 	},
 
 	render() {
-		return (<div><Resume currentResume={this.state.currentResume} person={this.state.person} languages={this.state.languages} categories={this.state.categories} /></div>);
+		return (<div><Resume currentResume={this.state.currentResume} person={this.state.person} languages={this.state.languages} categories={this.state.categories} educations={this.state.educations} /></div>);
 }
 });
 ReactDOM.render(<App />, document.getElementById("target"));

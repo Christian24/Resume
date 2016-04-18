@@ -2,6 +2,7 @@ let React = require("react");
 let ResumeHeader = require("./resumeHeader.jsx");
 let Category = require("./category.jsx");
 let Languages = require("./languages.jsx");
+let Educations = require("./educations.jsx");
 module.exports = class Resume extends React.Component {
 	constructor(props) {
 		super(props);
@@ -10,13 +11,15 @@ module.exports = class Resume extends React.Component {
 	renderCategory(key) {
 		return <Category key={key} index={key} details={this.props.categories[key]} />
 	}
-  render() {
-  	return(
+	render() {
+		return (
 	 <div>
 		 <ResumeHeader title={this.props.currentResume.title} person={this.props.person} />
-		{Object.keys(this.props.categories).map(this.renderCategory)}
+	 	{Object.keys(this.props.categories).map(this.renderCategory)}
+		   <Educations  educations={this.props.educations} />
 		  <Languages title={this.props.currentResume.languages} languages={this.props.languages} />
+
 	 </div>
 		);
-		 }
+	}
 };

@@ -57,7 +57,7 @@
 	var App = React.createClass({
 		displayName: "App",
 		getInitialState: function getInitialState() {
-			return { resumes: {}, currentResume: {}, person: {}, languages: {}, categories: {} };
+			return { resumes: {}, currentResume: {}, person: {}, languages: {}, categories: {}, educations: {} };
 		},
 		loadData: function loadData() {
 			//let resumes = require("./resumeData");
@@ -84,7 +84,7 @@
 	
 			var assigned = _resumeData.resumeEn;
 	
-			this.setState({ currentResume: assigned, person: _resumeData.personalDetails, languages: _resumeData.languagesData, categories: _resumeData.categoriesData }, function () {
+			this.setState({ currentResume: assigned, person: _resumeData.personalDetails, languages: _resumeData.languagesData, categories: _resumeData.categoriesData, educations: _resumeData.educationsData }, function () {
 				console.log(this.state.languages.french.name);
 			});
 			//update(currentResume, {personalDetails: $set:{personalDetails}});
@@ -100,7 +100,7 @@
 			return React.createElement(
 				"div",
 				null,
-				React.createElement(Resume, { currentResume: this.state.currentResume, person: this.state.person, languages: this.state.languages, categories: this.state.categories })
+				React.createElement(Resume, { currentResume: this.state.currentResume, person: this.state.person, languages: this.state.languages, categories: this.state.categories, educations: this.state.educations })
 			);
 		}
 	});
@@ -115,7 +115,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.categoriesData = exports.languagesData = exports.resumeEn = exports.personalDetails = exports.ResumeData = undefined;
+	exports.educationsData = exports.categoriesData = exports.languagesData = exports.resumeEn = exports.personalDetails = exports.ResumeData = undefined;
 	
 	var _PersonalDetails = __webpack_require__(2);
 	
@@ -224,6 +224,13 @@
 			}
 		}
 	
+	};
+	var educationsData = exports.educationsData = {
+		fh: {
+			college: "Münster University of Applied Sciences",
+			degree: "Business Informatics",
+			text: "Expected Graduation: Sep 2017"
+		}
 	};
 
 /***/ },
@@ -20225,6 +20232,7 @@
 	var ResumeHeader = __webpack_require__(169);
 	var Category = __webpack_require__(170);
 	var Languages = __webpack_require__(173);
+	var Educations = __webpack_require__(177);
 	module.exports = function (_React$Component) {
 		_inherits(Resume, _React$Component);
 	
@@ -20250,6 +20258,7 @@
 					null,
 					React.createElement(ResumeHeader, { title: this.props.currentResume.title, person: this.props.person }),
 					Object.keys(this.props.categories).map(this.renderCategory),
+					React.createElement(Educations, { educations: this.props.educations }),
 					React.createElement(Languages, { title: this.props.currentResume.languages, languages: this.props.languages })
 				);
 			}
@@ -20716,6 +20725,102 @@
 	
 	module.exports = update;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+
+/***/ },
+/* 177 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(3);
+	var Education = __webpack_require__(178);
+	module.exports = function (_React$Component) {
+		_inherits(Educations, _React$Component);
+	
+		function Educations(props) {
+			_classCallCheck(this, Educations);
+	
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Educations).call(this, props));
+	
+			_this.renderEducation = _this.renderEducation.bind(_this);
+			return _this;
+		}
+	
+		_createClass(Educations, [{
+			key: "renderEducation",
+			value: function renderEducation(key) {
+				return React.createElement(Education, { key: key, index: key, details: this.props.educations[key] });
+			}
+		}, {
+			key: "render",
+			value: function render() {
+				return React.createElement(
+					"div",
+					null,
+					React.createElement(
+						"h3",
+						null,
+						"Education"
+					),
+					Object.keys(this.props.educations).map(this.renderEducation)
+				);
+			}
+		}]);
+	
+		return Educations;
+	}(React.Component);
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(3);
+	module.exports = function (_React$Component) {
+		_inherits(Education, _React$Component);
+	
+		function Education() {
+			_classCallCheck(this, Education);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Education).apply(this, arguments));
+		}
+	
+		_createClass(Education, [{
+			key: "render",
+			value: function render() {
+				return React.createElement(
+					"div",
+					null,
+					React.createElement(
+						"h4",
+						null,
+						this.props.details.degree,
+						", ",
+						this.props.details.college
+					)
+				);
+			}
+		}]);
+	
+		return Education;
+	}(React.Component);
 
 /***/ }
 /******/ ]);
