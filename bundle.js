@@ -231,7 +231,7 @@
 	var educationsData = exports.educationsData = {
 		fh: {
 			college: "Münster University of Applied Sciences",
-			degree: "Business Informatics",
+			degree: "Business Informatics B.Sc.",
 			text: "Expected Graduation: Sep 2017"
 		}
 	};
@@ -20267,7 +20267,7 @@
 	var React = __webpack_require__(3);
 	var ResumeHeader = __webpack_require__(169);
 	var Category = __webpack_require__(170);
-	var Languages = __webpack_require__(175);
+	var Languages = __webpack_require__(176);
 	var Educations = __webpack_require__(177);
 	var Technologies = __webpack_require__(179);
 	
@@ -20420,7 +20420,7 @@
 	
 	var React = __webpack_require__(3);
 	var Job = __webpack_require__(171);
-	var Heading = __webpack_require__(174);
+	var Heading = __webpack_require__(175);
 	module.exports = function (_React$Component) {
 		_inherits(Category, _React$Component);
 	
@@ -20469,7 +20469,7 @@
 	
 	var React = __webpack_require__(3);
 	var Description = __webpack_require__(172);
-	var Subheading = __webpack_require__(173);
+	var Subheading = __webpack_require__(174);
 	module.exports = function (_React$Component) {
 		_inherits(Job, _React$Component);
 	
@@ -20490,6 +20490,7 @@
 		}, {
 			key: "render",
 			value: function render() {
+	
 				return React.createElement(
 					"div",
 					null,
@@ -20521,7 +20522,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(3);
-	var classNames = __webpack_require__(185);
+	var classNames = __webpack_require__(173);
 	
 	module.exports = function (_React$Component) {
 		_inherits(Description, _React$Component);
@@ -20555,6 +20556,60 @@
 /* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2016 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
+	
+	(function () {
+		'use strict';
+	
+		var hasOwn = {}.hasOwnProperty;
+	
+		function classNames () {
+			var classes = [];
+	
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+	
+				var argType = typeof arg;
+	
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					classes.push(classNames.apply(null, arg));
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+	
+			return classes.join(' ');
+		}
+	
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (true) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	}());
+
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -20578,6 +20633,10 @@
 		_createClass(Subheading, [{
 			key: "render",
 			value: function render() {
+				var text = "";
+				if (this.props.start && this.props.end) {
+					text = this.props.start + " - " + this.props.end;
+				}
 				return React.createElement(
 					"p",
 					null,
@@ -20595,9 +20654,7 @@
 					React.createElement(
 						"span",
 						{ className: "pull-right" },
-						this.props.start,
-						" - ",
-						this.props.end
+						text
 					),
 					" "
 				);
@@ -20608,7 +20665,7 @@
 	}(React.Component);
 
 /***/ },
-/* 174 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20646,7 +20703,7 @@
 	}(React.Component);
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -20661,7 +20718,7 @@
 	
 	var React = __webpack_require__(3);
 	var Description = __webpack_require__(172);
-	var Heading = __webpack_require__(174);
+	var Heading = __webpack_require__(175);
 	module.exports = function (_React$Component) {
 		_inherits(Languages, _React$Component);
 	
@@ -20703,7 +20760,6 @@
 	}(React.Component);
 
 /***/ },
-/* 176 */,
 /* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -20719,7 +20775,7 @@
 	
 	var React = __webpack_require__(3);
 	var Education = __webpack_require__(178);
-	var Heading = __webpack_require__(174);
+	var Heading = __webpack_require__(175);
 	module.exports = function (_React$Component) {
 		_inherits(Educations, _React$Component);
 	
@@ -20767,7 +20823,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(3);
-	var Subheading = __webpack_require__(173);
+	var Subheading = __webpack_require__(174);
 	module.exports = function (_React$Component) {
 		_inherits(Education, _React$Component);
 	
@@ -20807,7 +20863,7 @@
 	
 	var React = __webpack_require__(3);
 	var Technology = __webpack_require__(180);
-	var Heading = __webpack_require__(174);
+	var Heading = __webpack_require__(175);
 	module.exports = function (_React$Component) {
 		_inherits(Technologies, _React$Component);
 	
@@ -21093,60 +21149,6 @@
 	
 	module.exports = update;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
-
-/***/ },
-/* 185 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	  Copyright (c) 2016 Jed Watson.
-	  Licensed under the MIT License (MIT), see
-	  http://jedwatson.github.io/classnames
-	*/
-	/* global define */
-	
-	(function () {
-		'use strict';
-	
-		var hasOwn = {}.hasOwnProperty;
-	
-		function classNames () {
-			var classes = [];
-	
-			for (var i = 0; i < arguments.length; i++) {
-				var arg = arguments[i];
-				if (!arg) continue;
-	
-				var argType = typeof arg;
-	
-				if (argType === 'string' || argType === 'number') {
-					classes.push(arg);
-				} else if (Array.isArray(arg)) {
-					classes.push(classNames.apply(null, arg));
-				} else if (argType === 'object') {
-					for (var key in arg) {
-						if (hasOwn.call(arg, key) && arg[key]) {
-							classes.push(key);
-						}
-					}
-				}
-			}
-	
-			return classes.join(' ');
-		}
-	
-		if (typeof module !== 'undefined' && module.exports) {
-			module.exports = classNames;
-		} else if (true) {
-			// register as 'classnames', consistent with npm package name
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
-				return classNames;
-			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-		} else {
-			window.classNames = classNames;
-		}
-	}());
-
 
 /***/ }
 /******/ ]);

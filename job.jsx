@@ -10,6 +10,7 @@ module.exports = class Job extends React.Component {
 		return <Description key={key} index={key} text={this.props.details.descriptions[key]} />
 	}
 	render() {
+		
 		return (
 		<div>
 			<Subheading first={this.props.details.role} second={this.props.details.company} start={this.props.details.start} end={this.props.details.end} />
