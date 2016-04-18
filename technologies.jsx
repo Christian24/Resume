@@ -1,5 +1,6 @@
 ﻿let React = require("react");
 let Technology = require("./technology.jsx");
+let Heading = require("./heading.jsx");
 module.exports = class Technologies extends React.Component {
 	constructor(props) {
 		super(props);
@@ -10,7 +11,7 @@ module.exports = class Technologies extends React.Component {
 	}
 	render() {
 		return (<div>
-		<h3>{this.props.title}</h3>
+		<Heading title={this.props.title}/>
 			
 			  		{Object.keys(this.props.technologies).map(this.renderTechnology)}
 					  

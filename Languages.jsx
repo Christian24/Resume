@@ -1,5 +1,6 @@
 ﻿let React = require("react");
 let Language = require("./language.jsx");
+let Heading = require("./heading.jsx");
 module.exports = class Languages extends React.Component {
 	constructor(props) {
 		super(props);
@@ -12,7 +13,7 @@ module.exports = class Languages extends React.Component {
 	}
 	render() {
 		return (<div>
-	<h3>{this.props.title}  </h3>
+	<Heading title={this.props.title} />
 	<ul className="list-inline">
 		
 		{

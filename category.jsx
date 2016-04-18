@@ -1,5 +1,6 @@
 ﻿let React = require("react");
 let Job = require("./job.jsx");
+let Heading = require("./heading.jsx");
 module.exports = class Category extends React.Component {
 	constructor(props) {
 		super(props);
@@ -11,7 +12,7 @@ module.exports = class Category extends React.Component {
 	render() {
 		return (
 		<div>
-		<h3>{this.props.details.name} </h3>
+		<Heading title={this.props.details.name}/> 
 		{Object.keys(this.props.details.items).map(this.renderJob)}
 		</div>
 		);
