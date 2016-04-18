@@ -1,5 +1,6 @@
 ﻿let React = require("react");
 let Description = require("./description.jsx");
+let Subheading = require("./subheading.jsx");
 module.exports = class Job extends React.Component {
 	constructor(props) {
 		super(props);
@@ -11,7 +12,8 @@ module.exports = class Job extends React.Component {
 	render() {
 		return (
 		<div>
-		<p><strong>{this.props.details.role}</strong>, <u>{this.props.details.company}</u> </p>
+			<Subheading first={this.props.details.role} second={this.props.details.company} />
+		
 			<ul>
 				{Object.keys(this.props.details.descriptions).map(this.renderDescription)}
 			</ul>

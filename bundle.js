@@ -20459,6 +20459,7 @@
 	
 	var React = __webpack_require__(3);
 	var Description = __webpack_require__(172);
+	var Subheading = __webpack_require__(182);
 	module.exports = function (_React$Component) {
 		_inherits(Job, _React$Component);
 	
@@ -20482,22 +20483,7 @@
 				return React.createElement(
 					"div",
 					null,
-					React.createElement(
-						"p",
-						null,
-						React.createElement(
-							"strong",
-							null,
-							this.props.details.role
-						),
-						", ",
-						React.createElement(
-							"u",
-							null,
-							this.props.details.company
-						),
-						" "
-					),
+					React.createElement(Subheading, { first: this.props.details.role, second: this.props.details.company }),
 					React.createElement(
 						"ul",
 						null,
@@ -20709,6 +20695,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(3);
+	var Subheading = __webpack_require__(182);
 	module.exports = function (_React$Component) {
 		_inherits(Education, _React$Component);
 	
@@ -20724,13 +20711,7 @@
 				return React.createElement(
 					"div",
 					null,
-					React.createElement(
-						"h5",
-						null,
-						this.props.details.degree,
-						", ",
-						this.props.details.college
-					)
+					React.createElement(Subheading, { first: this.props.details.degree, second: this.props.details.college })
 				);
 			}
 		}]);
@@ -20999,6 +20980,55 @@
 		}]);
 	
 		return Heading;
+	}(React.Component);
+
+/***/ },
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(3);
+	module.exports = function (_React$Component) {
+		_inherits(Subheading, _React$Component);
+	
+		function Subheading() {
+			_classCallCheck(this, Subheading);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Subheading).apply(this, arguments));
+		}
+	
+		_createClass(Subheading, [{
+			key: "render",
+			value: function render() {
+				return React.createElement(
+					"p",
+					null,
+					React.createElement(
+						"strong",
+						null,
+						this.props.first
+					),
+					", ",
+					React.createElement(
+						"u",
+						null,
+						this.props.second
+					),
+					" "
+				);
+			}
+		}]);
+	
+		return Subheading;
 	}(React.Component);
 
 /***/ }

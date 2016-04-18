@@ -1,9 +1,12 @@
 ﻿let React = require("react");
+let Subheading = require("./subheading.jsx");
 module.exports = class Education extends React.Component {
 
 	render() {
-		return (<div><h5>
-	{this.props.details.degree}, {this.props.details.college}
-	</h5></div>);
+		return (
+		<div>
+		<Subheading first={this.props.details.degree} second={this.props.details.college} />
+		</div>
+		);
 	}
 };
