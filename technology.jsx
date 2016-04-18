@@ -11,7 +11,7 @@ module.exports = class Technology extends React.Component {
 		let last = this.props.details.items[this.props.details.items.length - 1];
 		let isLast = last == this.props.details.items[key];
 		
-		return <Description key={key} index={key} text={this.props.details.items[key]} isLast={isLast} isSkill={true} skillClass="label-primary" />
+		return <Description key={key} index={key} text={this.props.details.items[key]} isLast={isLast} isSkill={true} skillClass="skill-technology" />
 		
 	}
 	render() {

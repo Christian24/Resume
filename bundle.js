@@ -20661,7 +20661,7 @@
 			key: "renderLanguage",
 			value: function renderLanguage(key) {
 	
-				return React.createElement(Language, { key: key, index: key, details: this.props.languages[key] });
+				return React.createElement(Language, { key: key, index: key, details: this.props.languages[key], isSkill: true, skillClass: "skill-language" });
 			}
 		}, {
 			key: "render",
@@ -20699,6 +20699,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(3);
+	var classNames = __webpack_require__(185);
 	module.exports = function (_React$Component) {
 		_inherits(Language, _React$Component);
 	
@@ -20711,9 +20712,13 @@
 		_createClass(Language, [{
 			key: "render",
 			value: function render() {
+				var classes = classNames({
+					"skill": this.props.isSkill
+	
+				}, this.props.skillClass);
 				return React.createElement(
 					"li",
-					null,
+					{ className: classes },
 					this.props.details.name,
 					" (",
 					this.props.details.description,
@@ -20899,7 +20904,7 @@
 				var last = this.props.details.items[this.props.details.items.length - 1];
 				var isLast = last == this.props.details.items[key];
 	
-				return React.createElement(Description, { key: key, index: key, text: this.props.details.items[key], isLast: isLast, isSkill: true, skillClass: "label-primary" });
+				return React.createElement(Description, { key: key, index: key, text: this.props.details.items[key], isLast: isLast, isSkill: true, skillClass: "skill-technology" });
 			}
 		}, {
 			key: "render",
