@@ -127,3 +127,76 @@ export let educationsData = {
 		text: "Expected Graduation: Sep 2017" 
 	}
 };
+export let technologiesData = {
+	csharp: {
+		name: "C#",
+		text: "7 years",
+		items: [
+			".NET Framework 4.6",
+			"Visual Studio 2015",
+			"JSON.net",
+			"User Interface/UX Design",
+			"Windows Presentation Foundation",
+			"Windows Forms"
+		]
+	},
+	apps: {
+		name: "Mobile Apps",
+		text: "4 years",
+		items: [
+			"Xamarin iOS",
+			"MonoGame",
+			"Windows Phone",
+			"XNA",
+			"In App Purchases (Windows)",
+			"Advertising providers/integration"
+		]
+	},
+	web: {
+		name: "JavaScript / Web",
+		text: "",
+		items: [
+			"HTML5",
+			"Ruby on Rails",
+			"Bootstrap",
+			"jQuery",
+			"TypeScript",
+			"CSS",
+			"ES6",
+			"CSS",
+			"PHP",
+			"Website Design"
+		]
+	},
+	java: {
+		name: "Java",
+		text: "",
+		items: [
+			"Enterprise JavaBeans",
+			"JUnit",
+			"JDBC",
+			"JPA"
+		]
+	},
+	data: {
+		name: "SQL / Data",
+		text: "",
+		items: [
+			"SQL",
+			"Database Design",
+			"JSON.net",
+			"XPath",
+			"UML"
+		]
+	},
+	office: {
+		name: "Microsoft Office",
+		text: "",
+		items: [
+			"Word",
+			"Excel",
+			"PowerPoint"
+		]
+	}
+
+};
