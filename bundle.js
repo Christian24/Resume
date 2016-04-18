@@ -20301,8 +20301,8 @@
 							"div",
 							{ className: "container-fluid" },
 							React.createElement(ResumeHeader, { title: this.props.currentResume.title, person: this.props.person }),
-							Object.keys(this.props.categories).map(this.renderCategory),
 							React.createElement(Educations, { title: this.props.currentResume.education, educations: this.props.educations }),
+							Object.keys(this.props.categories).map(this.renderCategory),
 							React.createElement(Languages, { title: this.props.currentResume.languages, languages: this.props.languages }),
 							React.createElement(Technologies, { title: this.props.currentResume.technologies, technologies: this.props.technologies })
 						)
