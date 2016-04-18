@@ -1,5 +1,7 @@
 ﻿body {
-
+	 background-color: #333;
+	 margin-bottom: 20px;
+	 margin-top: 20px;
  
 }
 .skill  {
@@ -19,4 +21,9 @@
 	
 	font-weight: bolder;
 	font-style:italic;
+}
+.paper {
+	background-color: #FFF;
+	padding: .2em;
+	box-shadow: 0 10px 6px -6px #777;
 }
