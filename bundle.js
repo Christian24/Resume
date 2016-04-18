@@ -20334,7 +20334,7 @@
 					"div",
 					null,
 					React.createElement(
-						"h1",
+						"h2",
 						null,
 						this.props.title,
 						" ",
@@ -20484,11 +20484,19 @@
 					"div",
 					null,
 					React.createElement(
-						"h4",
+						"p",
 						null,
-						this.props.details.role,
+						React.createElement(
+							"strong",
+							null,
+							this.props.details.role
+						),
 						", ",
-						this.props.details.company,
+						React.createElement(
+							"u",
+							null,
+							this.props.details.company
+						),
 						" "
 					),
 					React.createElement(
@@ -20845,7 +20853,7 @@
 					"div",
 					null,
 					React.createElement(
-						"h4",
+						"h5",
 						null,
 						this.props.details.degree,
 						", ",

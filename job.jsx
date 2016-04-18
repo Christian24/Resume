@@ -11,7 +11,7 @@ module.exports = class Job extends React.Component {
 	render() {
 		return (
 		<div>
-		<h4>{this.props.details.role}, {this.props.details.company} </h4>
+		<p><strong>{this.props.details.role}</strong>, <u>{this.props.details.company}</u> </p>
 			<ul>
 				{Object.keys(this.props.details.descriptions).map(this.renderDescription)}
 			</ul>

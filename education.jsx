@@ -2,8 +2,8 @@
 module.exports = class Education extends React.Component {
 
 	render() {
-		return (<div><h4>
+		return (<div><h5>
 	{this.props.details.degree}, {this.props.details.college}
-	</h4></div>);
+	</h5></div>);
 	}
 };
