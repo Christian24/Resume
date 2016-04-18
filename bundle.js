@@ -20824,6 +20824,7 @@
 	
 	var React = __webpack_require__(3);
 	var Subheading = __webpack_require__(174);
+	var Description = __webpack_require__(172);
 	module.exports = function (_React$Component) {
 		_inherits(Education, _React$Component);
 	
@@ -20839,7 +20840,12 @@
 				return React.createElement(
 					"div",
 					null,
-					React.createElement(Subheading, { first: this.props.details.degree, second: this.props.details.college })
+					React.createElement(Subheading, { first: this.props.details.degree, second: this.props.details.college }),
+					React.createElement(
+						"ul",
+						null,
+						React.createElement(Description, { text: this.props.details.text })
+					)
 				);
 			}
 		}]);
