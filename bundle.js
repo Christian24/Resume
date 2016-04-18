@@ -180,6 +180,18 @@
 				}
 			}
 		},
+		education: { name: "Education",
+			items: {
+				wheelom: {
+					role: "B.S., Business Informatics",
+					company: "Münster University of Applied Sciences",
+					start: "",
+					end: "",
+					text: "Expected Graduation: Sep 2017",
+					descriptions: ["Current grade: 2.2 - Good", "Semester: 4/6", "Current ECTS: 93"]
+				}
+			}
+		},
 		experience: { name: "Experience",
 			items: {
 				econimicsAssociation: {
@@ -20302,7 +20314,6 @@
 							"div",
 							{ className: "container-fluid" },
 							React.createElement(ResumeHeader, { title: this.props.currentResume.title, person: this.props.person }),
-							React.createElement(Educations, { title: this.props.currentResume.education, educations: this.props.educations }),
 							Object.keys(this.props.categories).map(this.renderCategory),
 							React.createElement(Languages, { title: this.props.currentResume.languages, languages: this.props.languages }),
 							React.createElement(Technologies, { title: this.props.currentResume.technologies, technologies: this.props.technologies })
@@ -20495,7 +20506,7 @@
 				return React.createElement(
 					"div",
 					null,
-					React.createElement(Subheading, { first: this.props.details.role, second: this.props.details.company, start: this.props.details.start, end: this.props.details.end }),
+					React.createElement(Subheading, { first: this.props.details.role, second: this.props.details.company, start: this.props.details.start, end: this.props.details.end, text: this.props.details.text }),
 					React.createElement(
 						"ul",
 						null,

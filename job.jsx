@@ -13,7 +13,7 @@ module.exports = class Job extends React.Component {
 		
 		return (
 		<div>
-			<Subheading first={this.props.details.role} second={this.props.details.company} start={this.props.details.start} end={this.props.details.end} />
+			<Subheading first={this.props.details.role} second={this.props.details.company} start={this.props.details.start} end={this.props.details.end} text={this.props.details.text} />
 		
 			<ul>
 				{Object.keys(this.props.details.descriptions).map(this.renderDescription)}

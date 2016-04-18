@@ -19,7 +19,7 @@ module.exports = class Resume extends React.Component {
 		 <div className="paper">
 			 <div className="container-fluid">
 		 <ResumeHeader title={this.props.currentResume.title} person={this.props.person} />
-				   <Educations title={this.props.currentResume.education} educations={this.props.educations} />
+				
 			 	{Object.keys(this.props.categories).map(this.renderCategory)}
 		 
 		  <Languages title={this.props.currentResume.languages} languages={this.props.languages} />

@@ -60,6 +60,22 @@ export let categoriesData = {
 			}
 		}
 	},
+	education: {name: "Education",
+		items: {
+			wheelom: {
+				role: "B.S., Business Informatics",
+				company: "Münster University of Applied Sciences",
+				start: "",
+				end: "",
+				text: "Expected Graduation: Sep 2017",
+				descriptions: [
+					"Current grade: 2.2 - Good",
+					"Semester: 4/6",
+					"Current ECTS: 93"
+				]
+			}
+		}
+	},
 	experience: {name: "Experience",
 		items: {
 			econimicsAssociation: {
