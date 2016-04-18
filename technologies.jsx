@@ -7,6 +7,7 @@ module.exports = class Technologies extends React.Component {
 		this.renderTechnology = this.renderTechnology.bind(this);
 	}
 	renderTechnology(key) {
+		
 		return <Technology key={key} index={key} details={this.props.technologies[key] } />;
 	}
 	render() {
