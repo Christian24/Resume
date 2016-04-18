@@ -1,6 +1,6 @@
 ﻿body {
 
-  padding-top: 70px;
+ 
 }
 .skill  {
 	vertical-align: baseline;
@@ -14,4 +14,9 @@
 }
 .skill-language {
 	background-color: #4cff00;
+}
+.technology-heading  {
+	
+	font-weight: bolder;
+	font-style:italic;
 }

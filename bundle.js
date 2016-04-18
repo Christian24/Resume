@@ -20960,8 +20960,8 @@
 			key: "render",
 			value: function render() {
 				return React.createElement(
-					"i",
-					null,
+					"p",
+					{ className: "technology-heading" },
 					this.props.title
 				);
 			}

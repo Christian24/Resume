@@ -2,6 +2,6 @@
 module.exports = class SmallHeading extends React.Component {
 
 	render() {
-		return (<i>{this.props.title}</i>);
+		return (<p className="technology-heading">{this.props.title}</p>);
 	}
 };
