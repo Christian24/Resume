@@ -15,9 +15,9 @@ module.exports = class Resume extends React.Component {
 	}
 	render() {
 		return (
-	 <div className="container">
+	 
 		 <div className="paper">
-			 <div className="container-fluid">
+			
 		 <ResumeHeader title={this.props.currentResume.title} person={this.props.person} />
 				
 			 	{Object.keys(this.props.categories).map(this.renderCategory)}
@@ -25,8 +25,7 @@ module.exports = class Resume extends React.Component {
 		  <Languages title={this.props.currentResume.languages} languages={this.props.languages} />
 		 <Technologies title={this.props.currentResume.technologies} technologies={this.props.technologies} />
 			 </div>
-		 </div>
-	 </div>
+	
 		);
 	}
 };
