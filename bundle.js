@@ -11188,7 +11188,7 @@
 			value: function renderNote(key) {
 				if (this.props.notes[key]) {
 					console.log(key);
-					return React.createElement(Note, { text: key });
+					return React.createElement(Note, { text: key, key: key });
 				}
 			}
 		}, {

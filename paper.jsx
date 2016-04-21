@@ -10,7 +10,7 @@ class Paper extends React.Component {
 	renderNote(key) {
 		if (this.props.notes[key]) {
 			console.log(key);
-		return (<Note text={key } />);
+		return (<Note text={key } key={key} />);
 	}
 	}
 	render() {
