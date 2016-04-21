@@ -1,5 +1,6 @@
 ﻿const React = require("react");
 const Resume = require("./resume.jsx");
+
 const Paper = require("./paper.jsx");
 import {connect} from 'react-redux';
 
@@ -26,11 +27,12 @@ export class App extends React.Component {
 		categories={this.props.categories} educations={this.props.educations} technologies={this.props.technologies} /></div>
 		<div className="col-md-2">
 			<Paper notes= {this.props.notes} />
+	
 			</div></div>);
 	}
 }
 function mapStateToProps(state) {
-	console.log(state);
+
 	//return {
 	//	currentResume: state.get('currentResume'),
 	//	person: state.get('person'),

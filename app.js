@@ -7,12 +7,9 @@ const update = require("react-addons-update");
 import {List, Map} from 'immutable';
 import {compose,createStore} from 'redux';
 import {Provider} from 'react-redux';
-import reducer from './redux/reducer';
+import {store} from "./redux/store";
 import {resumeEn, personalDetails, languagesData, categoriesData, educationsData, technologiesData} from "./resumeData";
-const createStoreDevTools = compose(
-  window.devToolsExtension ? window.devToolsExtension() : f => f
-)(createStore);
-const store = createStoreDevTools(reducer);
+
 //Our store
 //const store = createStore(reducer);
 //Our initial state:

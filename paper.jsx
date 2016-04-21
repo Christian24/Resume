@@ -7,9 +7,13 @@ module.exports = class Paper extends React.Component {
 		this.renderNote = this.renderNote.bind(this);
 	}
 	renderNote(key) {
-		return (<Note text={this.props.notes[key]} />);
+		if (this.props.notes[key]) {
+			console.log(key);
+		return (<Note text={key } />);
+	}
 	}
 	render() {
+		console.log(this.props.notes);
 		return (<div className="paper">
 	<Heading title="Notes" />
 	<ul>

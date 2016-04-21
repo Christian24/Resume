@@ -1,5 +1,6 @@
 ﻿let React = require("react");
 let classNames = require('classnames');
+import { connect } from 'react-redux'
 
 module.exports = class Description extends React.Component {
 	constructor(props) {
@@ -8,7 +9,13 @@ module.exports = class Description extends React.Component {
 	}
 	
 	handleClick(event) {
-		console.log(this.props.text);
+	
+	
+		this.props.dispatch({
+			type: "ADD_NOTE",
+			state: this.props.text
+		});
+		
 	}
 	render() {
 		let classes = classNames({
