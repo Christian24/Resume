@@ -9,13 +9,12 @@ class Paper extends React.Component {
 	}
 	renderNote(key) {
 		if (this.props.notes[key]) {
-			console.log(key);
+			
 		return (<Note text={key } key={key} />);
 	}
 	}
 	render() {
-		console.log(this.context.store.getState("notes"));
-		let notes = this.context.store.getState("notes").notes;
+	
 		return (<div className="paper">
 	<Heading title="Notes" />
 	<ul>

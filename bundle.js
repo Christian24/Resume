@@ -10859,6 +10859,8 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
+	var _reactRedux = __webpack_require__(2);
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -10866,16 +10868,30 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(5);
-	module.exports = function (_React$Component) {
+	
+	var Subheading = function (_React$Component) {
 		_inherits(Subheading, _React$Component);
 	
-		function Subheading() {
+		function Subheading(props) {
 			_classCallCheck(this, Subheading);
 	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Subheading).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Subheading).call(this, props));
+	
+			_this.handleClick = _this.handleClick.bind(_this);
+			return _this;
 		}
 	
 		_createClass(Subheading, [{
+			key: "handleClick",
+			value: function handleClick(event) {
+	
+				var value = this.props.first + " / " + this.props.second + " (" + this.props.text + ")";
+				this.context.store.dispatch({
+					type: "ADD_NOTE",
+					state: value
+				});
+			}
+		}, {
 			key: "render",
 			value: function render() {
 				var text = "";
@@ -10887,7 +10903,7 @@
 				}
 				return React.createElement(
 					"p",
-					null,
+					{ onClick: this.handleClick },
 					React.createElement(
 						"strong",
 						null,
@@ -10911,6 +10927,11 @@
 	
 		return Subheading;
 	}(React.Component);
+	
+	Subheading.contextTypes = {
+		store: React.PropTypes.object
+	};
+	module.exports = (0, _reactRedux.connect)()(Subheading);
 
 /***/ },
 /* 68 */
@@ -11187,15 +11208,14 @@
 			key: "renderNote",
 			value: function renderNote(key) {
 				if (this.props.notes[key]) {
-					console.log(key);
+	
 					return React.createElement(Note, { text: key, key: key });
 				}
 			}
 		}, {
 			key: "render",
 			value: function render() {
-				console.log(this.context.store.getState("notes"));
-				var notes = this.context.store.getState("notes").notes;
+	
 				return React.createElement(
 					"div",
 					{ className: "paper" },
