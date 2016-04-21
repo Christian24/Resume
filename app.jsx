@@ -20,7 +20,7 @@ export class App extends React.Component {
 	}
 	render() {
 		
-		return (<div className="container">
+		return (<div className="container-fluid">
 			<div className="col-md-2">Test</div>
 				<div className="col-md-8">
 			<Resume currentResume={this.props.currentResume} person={this.props.person} languages={this.props.languages} 

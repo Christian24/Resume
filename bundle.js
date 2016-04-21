@@ -206,7 +206,7 @@
 	
 				return React.createElement(
 					"div",
-					{ className: "container" },
+					{ className: "container-fluid" },
 					React.createElement(
 						"div",
 						{ className: "col-md-2" },
