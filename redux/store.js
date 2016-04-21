@@ -10,5 +10,5 @@ export default function configureStore(initialState) {
 	return store;
 }
 export const store = configureStore( {currentResume:newResumeData.resume, person: newResumeData.person, languages: newResumeData.languages, categories: newResumeData.categories, educations: educationsData,
-	technologies: newResumeData.technologies, notes: {}});
+	technologies: newResumeData.technologies, notes: newResumeData.notes});
  

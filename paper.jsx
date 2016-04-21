@@ -17,7 +17,7 @@ class Paper extends React.Component {
 	render() {
 	
 		return (<div className="paper">
-	<Heading title="Notes" />
+	<Heading title={this.props.text} />
 	<ul className="list-unstyled">
 		 <ReactCSSTransitionGroup transitionName="note" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
 		 	{Object.keys(this.props.notes).map(this.renderNote)}

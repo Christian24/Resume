@@ -6151,7 +6151,7 @@
 				return React.createElement(
 					"div",
 					{ className: "paper" },
-					React.createElement(Heading, { title: "Notes" }),
+					React.createElement(Heading, { title: this.props.text }),
 					React.createElement(
 						"ul",
 						{ className: "list-unstyled" },
@@ -28405,7 +28405,7 @@
 	  return store;
 	}
 	var store = exports.store = configureStore({ currentResume: _resumeData.newResumeData.resume, person: _resumeData.newResumeData.person, languages: _resumeData.newResumeData.languages, categories: _resumeData.newResumeData.categories, educations: _resumeData.educationsData,
-	  technologies: _resumeData.newResumeData.technologies, notes: {} });
+	  technologies: _resumeData.newResumeData.technologies, notes: _resumeData.newResumeData.notes });
 
 /***/ },
 /* 213 */
