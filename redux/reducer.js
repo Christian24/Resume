@@ -12,7 +12,10 @@ export default function(state, action) {
 
 		case 'ADD_NOTE':
 			let copy = Object.assign({}, state);
-			copy.notes[action.state] = true;
+			let copiedNotes = Object.assign({},copy.notes);
+			let value = copiedNotes[action.state];
+			copiedNotes[action.state] = !value;
+			copy.notes = copiedNotes;
 			
 			return copy;
 	}

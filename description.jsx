@@ -1,17 +1,18 @@
 ﻿let React = require("react");
 let classNames = require('classnames');
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
-module.exports = class Description extends React.Component {
+class Description extends React.Component {
 	constructor(props) {
 		super(props);
+		
 		this.handleClick = this.handleClick.bind(this);
 	}
 	
 	handleClick(event) {
 	
 	
-		this.props.dispatch({
+		this.context.store.dispatch({
 			type: "ADD_NOTE",
 			state: this.props.text
 		});
@@ -26,3 +27,7 @@ module.exports = class Description extends React.Component {
 		return (<li onClick={this.handleClick} className={classes}>{this.props.text}</li>);
 	}
 };
+ Description.contextTypes = {
+	store: React.PropTypes.object
+};
+ module.exports = connect()(Description);

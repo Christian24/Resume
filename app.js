@@ -19,12 +19,12 @@ import {resumeEn, personalDetails, languagesData, categoriesData, educationsData
 //		currentResume: {}, person: {}, languages: {}, categories: {}, educations: {}, technologies: {}
 //	}
 //})
-store.dispatch({
-	type: 'SET_STATE',
-	state: {
-		currentResume: resumeEn, person: personalDetails, languages: languagesData, categories: categoriesData, educations: educationsData, technologies: technologiesData, notes: {}
-	}
-});
+//store.dispatch({
+//	type: 'SET_STATE',
+//	state: {
+//		currentResume: resumeEn, person: personalDetails, languages: languagesData, categories: categoriesData, educations: educationsData, technologies: technologiesData, notes: {}
+//	}
+//});
 //let App = React.createClass ({
 //	getInitialState() {
 //		return { resumes: {}, currentResume: {}, person: {}, languages: {}, categories: {}, educations: {}, notes: {}, technologies: {} };

@@ -75,12 +75,12 @@
 	//		currentResume: {}, person: {}, languages: {}, categories: {}, educations: {}, technologies: {}
 	//	}
 	//})
-	_store.store.dispatch({
-			type: 'SET_STATE',
-			state: {
-					currentResume: _resumeData.resumeEn, person: _resumeData.personalDetails, languages: _resumeData.languagesData, categories: _resumeData.categoriesData, educations: _resumeData.educationsData, technologies: _resumeData.technologiesData, notes: {}
-			}
-	});
+	//store.dispatch({
+	//	type: 'SET_STATE',
+	//	state: {
+	//		currentResume: resumeEn, person: personalDetails, languages: languagesData, categories: categoriesData, educations: educationsData, technologies: technologiesData, notes: {}
+	//	}
+	//});
 	//let App = React.createClass ({
 	//	getInitialState() {
 	//		return { resumes: {}, currentResume: {}, person: {}, languages: {}, categories: {}, educations: {}, notes: {}, technologies: {} };
@@ -221,7 +221,7 @@
 					React.createElement(
 						"div",
 						{ className: "col-md-2" },
-						React.createElement(Paper, { notes: this.props.notes })
+						React.createElement(Paper, null)
 					)
 				);
 			}
@@ -231,7 +231,7 @@
 	}(React.Component);
 	
 	function mapStateToProps(state) {
-	
+		console.log(state);
 		//return {
 		//	currentResume: state.get('currentResume'),
 		//	person: state.get('person'),
@@ -5675,8 +5675,7 @@
 	var React = __webpack_require__(5);
 	var classNames = __webpack_require__(66);
 	
-	
-	module.exports = function (_React$Component) {
+	var Description = function (_React$Component) {
 		_inherits(Description, _React$Component);
 	
 		function Description(props) {
@@ -5692,7 +5691,7 @@
 			key: 'handleClick',
 			value: function handleClick(event) {
 	
-				this.props.dispatch({
+				this.context.store.dispatch({
 					type: "ADD_NOTE",
 					state: this.props.text
 				});
@@ -5715,6 +5714,12 @@
 	
 		return Description;
 	}(React.Component);
+	
+	;
+	Description.contextTypes = {
+		store: React.PropTypes.object
+	};
+	module.exports = (0, _reactRedux.connect)()(Description);
 
 /***/ },
 /* 62 */
@@ -5792,7 +5797,10 @@
 	
 			case 'ADD_NOTE':
 				var copy = Object.assign({}, state);
-				copy.notes[action.state] = true;
+				var copiedNotes = Object.assign({}, copy.notes);
+				var value = copiedNotes[action.state];
+				copiedNotes[action.state] = !value;
+				copy.notes = copiedNotes;
 	
 				return copy;
 		}
@@ -11151,6 +11159,8 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
+	var _reactRedux = __webpack_require__(2);
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -11160,7 +11170,8 @@
 	var React = __webpack_require__(5);
 	var Heading = __webpack_require__(68);
 	var Note = __webpack_require__(74);
-	module.exports = function (_React$Component) {
+	
+	var Paper = function (_React$Component) {
 		_inherits(Paper, _React$Component);
 	
 		function Paper(props) {
@@ -11183,7 +11194,8 @@
 		}, {
 			key: "render",
 			value: function render() {
-				console.log(this.props.notes);
+				console.log(this.context.store.getState("notes"));
+				var notes = this.context.store.getState("notes").notes;
 				return React.createElement(
 					"div",
 					{ className: "paper" },
@@ -11199,6 +11211,16 @@
 	
 		return Paper;
 	}(React.Component);
+	
+	;
+	function mapStateToProps(state) {
+		console.log(state.notes);
+		return { notes: state.notes };
+	}
+	Paper.contextTypes = {
+		store: React.PropTypes.object
+	};
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Paper);
 
 /***/ },
 /* 74 */
