@@ -11229,7 +11229,7 @@
 					React.createElement(Heading, { title: "Notes" }),
 					React.createElement(
 						"ul",
-						null,
+						{ className: "list-unstyled" },
 						Object.keys(this.props.notes).map(this.renderNote)
 					)
 				);
@@ -11279,7 +11279,7 @@
 			value: function render() {
 				return React.createElement(
 					"li",
-					null,
+					{ className: "paper paper-yellow" },
 					" ",
 					this.props.text
 				);

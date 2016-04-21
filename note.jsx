@@ -3,6 +3,6 @@ let Heading = require("./heading.jsx");
 module.exports = class Note extends React.Component {
 
 	render() {
-		return (<li> {this.props.text}</li>);
+		return (<li className="paper paper-yellow"> {this.props.text}</li>);
 	}
 };

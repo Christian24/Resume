@@ -17,7 +17,7 @@ class Paper extends React.Component {
 	
 		return (<div className="paper">
 	<Heading title="Notes" />
-	<ul>
+	<ul className="list-unstyled">
 		{Object.keys(this.props.notes).map(this.renderNote)}
 	</ul>
 	</div>);

@@ -24,6 +24,10 @@
 }
 .paper {
 	background-color: #FFF;
-	padding: .2em;
+	padding: .8em;
+	margin: 5px;
 	box-shadow: 0 10px 6px -6px #777;
+}
+.paper-yellow {
+	background-color: yellow;
 }
