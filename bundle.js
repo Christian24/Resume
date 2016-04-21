@@ -10884,8 +10884,15 @@
 		_createClass(Subheading, [{
 			key: "handleClick",
 			value: function handleClick(event) {
+				var text = "";
+				if (this.props.start && this.props.end) {
+					text = this.props.start + " - " + this.props.end;
+				}
+				if (this.props.text) {
+					text = this.props.text;
+				}
 	
-				var value = this.props.first + " / " + this.props.second + " (" + this.props.text + ")";
+				var value = this.props.first + " / " + this.props.second + " (" + text + ")";
 				this.context.store.dispatch({
 					type: "ADD_NOTE",
 					state: value

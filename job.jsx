@@ -12,6 +12,7 @@ module.exports = class Job extends React.Component {
 	render() {
 		
 		return (
+			
 		<div>
 			<Subheading first={this.props.details.role} second={this.props.details.company} start={this.props.details.start} end={this.props.details.end} text={this.props.details.text} />
 		

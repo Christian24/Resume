@@ -8,8 +8,16 @@ class Subheading extends React.Component {
 	}
 
 	handleClick(event) {
+		let text = "";
+		if(this.props.start && this.props.end){
+			text = this.props.start + " - " + this.props.end;
 
-		let value = this.props.first + " / " + this.props.second + " (" + this.props.text + ")";
+		}
+		if(this.props.text) {
+			text = this.props.text;
+		}
+
+		let value = this.props.first + " / " + this.props.second + " (" + text + ")";
 		this.context.store.dispatch({
 			type: "ADD_NOTE",
 			state: value
