@@ -1,7 +1,7 @@
 ﻿let React = require("react");
 let Description = require("./description.jsx");
 let SmallHeading = require("./smallheading.jsx");
-let Seperator = require("./seperator.jsx");
+
 module.exports = class Technology extends React.Component {
 	constructor(props) {
 		super(props);

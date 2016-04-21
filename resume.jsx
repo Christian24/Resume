@@ -2,7 +2,6 @@ let React = require("react");
 let ResumeHeader = require("./resumeHeader.jsx");
 let Category = require("./category.jsx");
 let Languages = require("./languages.jsx");
-let Educations = require("./educations.jsx");
 let Technologies = require("./technologies.jsx");
 
 module.exports = class Resume extends React.Component {
