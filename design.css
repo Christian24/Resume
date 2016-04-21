@@ -31,7 +31,7 @@
 .paper-yellow {
 	background-color: yellow;
 }
-/* Adapated from https://facebook.github.io/react/docs/animation.html*/
+/* Adapated from https://facebook.github.io/react/docs/animation.html */
 .note-enter {
   opacity: 0.01;
 }

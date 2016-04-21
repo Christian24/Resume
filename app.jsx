@@ -26,13 +26,13 @@ export class App extends React.Component {
 			<Resume currentResume={this.props.currentResume} person={this.props.person} languages={this.props.languages} 
 		categories={this.props.categories} educations={this.props.educations} technologies={this.props.technologies} /></div>
 		<div className="col-md-2">
-			<Paper />
+			<Paper text={this.props.currentResume.notes} />
 	
 			</div></div>);
 	}
 }
 function mapStateToProps(state) {
-	console.log(state);
+	
 	//return {
 	//	currentResume: state.get('currentResume'),
 	//	person: state.get('person'),
