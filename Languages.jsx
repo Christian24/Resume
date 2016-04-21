@@ -8,6 +8,8 @@ module.exports = class Languages extends React.Component {
 	}
 	renderLanguage(key) {
 		let lang = this.props.languages[key];
+		console.log(lang);
+		console.log(key);
 		let text = lang.name + " (" + lang.description + ")";
 		return <Description key={key} index={key} text={text} isSkill={true} skillClass="skill-language" />
 		
