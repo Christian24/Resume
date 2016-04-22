@@ -8,7 +8,7 @@ export class App extends React.Component {
 	
 	
 	render() {
-		
+		console.log(this.props);
 		return (<div className="container-fluid">
 			<div className="col-md-2">Test</div>
 				<div className="col-md-8">

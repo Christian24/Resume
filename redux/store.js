@@ -1,8 +1,7 @@
-﻿import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
-import DevTools from '../DevTools'
+﻿import { createStore } from 'redux'
+
 import reducer from './reducer';
-import {resumeEn, personalDetails, languagesData, categoriesData, educationsData, technologiesData, newResumeData} from "../resumeData";
+
 export default function configureStore(initialState) {
 	const store = createStore(reducer, initialState, 
       window.devToolsExtension ? window.devToolsExtension() : undefined
