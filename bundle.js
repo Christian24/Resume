@@ -193,18 +193,6 @@
 		}
 	
 		_createClass(App, [{
-			key: "changeNotes",
-			value: function changeNotes(text) {
-				var value = this.state.notes[text];
-				var obj = this.state.notes;
-				var temp = obj.constructor(); // give temp the original obj's constructor
-				for (var key in obj) {
-					temp[key] = cloneObject(obj[key]);
-				}
-				temp[text] = !value;
-				this.setState({ notes: temp });
-			}
-		}, {
 			key: "render",
 			value: function render() {
 	

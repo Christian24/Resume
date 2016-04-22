@@ -6,18 +6,7 @@ import {connect} from 'react-redux';
 
 export class App extends React.Component {
 	
-	changeNotes(text) {
-		let value=	this.state.notes[text];
-		let obj = this.state.notes;
-		let temp = obj.constructor(); // give temp the original obj's constructor
-		for (let key in obj) {
-			temp[key] = cloneObject(obj[key]);
-		}
-		temp[text] = !value;
-		this.setState({notes: temp});
- 
-		
-	}
+	
 	render() {
 		
 		return (<div className="container-fluid">
