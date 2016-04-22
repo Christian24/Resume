@@ -9,6 +9,6 @@ export default function configureStore(initialState) {
     );
 	return store;
 }
-export const store = configureStore( {currentResume:newResumeData.resume, person: newResumeData.person, languages: newResumeData.languages, categories: newResumeData.categories, educations: educationsData,
-	technologies: newResumeData.technologies, notes: newResumeData.notes});
+export const store = configureStore( {currentResume:{}, person: {}, languages: {}, categories: {}, educations: {},
+	technologies: {}, notes: {}});
  

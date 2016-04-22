@@ -28489,8 +28489,8 @@
 	  var store = (0, _redux.createStore)(_reducer2.default, initialState, window.devToolsExtension ? window.devToolsExtension() : undefined);
 	  return store;
 	}
-	var store = exports.store = configureStore({ currentResume: _resumeData.newResumeData.resume, person: _resumeData.newResumeData.person, languages: _resumeData.newResumeData.languages, categories: _resumeData.newResumeData.categories, educations: _resumeData.educationsData,
-	  technologies: _resumeData.newResumeData.technologies, notes: _resumeData.newResumeData.notes });
+	var store = exports.store = configureStore({ currentResume: {}, person: {}, languages: {}, categories: {}, educations: {},
+	  technologies: {}, notes: {} });
 
 /***/ },
 /* 215 */
