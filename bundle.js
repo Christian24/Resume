@@ -50,10 +50,10 @@
 	
 	var _reactRedux = __webpack_require__(2);
 	
-	var _store = __webpack_require__(214);
+	var _store = __webpack_require__(213);
 	
 	var React = __webpack_require__(5);
-	var ReactDOM = __webpack_require__(585);
+	var ReactDOM = __webpack_require__(216);
 	//const Resume = require("./resume.jsx");
 	//const Paper = require("./paper.jsx");
 	
@@ -62,7 +62,7 @@
 	//import {compose,createStore} from 'redux';
 	
 	//import {resumeEn, personalDetails, languagesData, categoriesData, educationsData, technologiesData} from "./resumeData";
-	var Rebase = __webpack_require__(588);
+	var Rebase = __webpack_require__(217);
 	var base = Rebase.createClass('https://chrisresume.firebaseio.com');
 	//Our store
 	//const store = createStore(reducer);
@@ -109,6 +109,8 @@
 	
 	var Paper = __webpack_require__(71);
 	
+	var ReactCSSTransitionGroup = __webpack_require__(73);
+	
 	var App = exports.App = function (_React$Component) {
 		_inherits(App, _React$Component);
 	
@@ -121,25 +123,31 @@
 		_createClass(App, [{
 			key: "render",
 			value: function render() {
-				console.log(this.props);
+	
+				console.log(this.context.store.getState());
+	
 				return React.createElement(
 					"div",
 					{ className: "container-fluid" },
-					React.createElement(
-						"div",
-						{ className: "col-md-2" },
-						"Test"
-					),
+					React.createElement("div", { className: "col-md-2" }),
 					React.createElement(
 						"div",
 						{ className: "col-md-8" },
-						React.createElement(Resume, { currentResume: this.props.currentResume, person: this.props.person, languages: this.props.languages,
-							categories: this.props.categories, educations: this.props.educations, technologies: this.props.technologies })
+						React.createElement(
+							ReactCSSTransitionGroup,
+							{ transitionAppear: true, transitionAppearTimeout: 500, transitionName: "fade", transitionEnterTimeout: 500, transitionLeaveTimeout: 300 },
+							React.createElement(Resume, { key: "resume", currentResume: this.props.currentResume, person: this.props.person, languages: this.props.languages,
+								categories: this.props.categories, educations: this.props.educations, technologies: this.props.technologies })
+						)
 					),
 					React.createElement(
 						"div",
 						{ className: "col-md-2" },
-						React.createElement(Paper, { text: this.props.currentResume.notes })
+						React.createElement(
+							ReactCSSTransitionGroup,
+							{ transitionAppear: true, transitionAppearTimeout: 500, transitionName: "fade", transitionEnterTimeout: 500, transitionLeaveTimeout: 300 },
+							React.createElement(Paper, { key: "notes", text: this.props.currentResume.notes })
+						)
 					)
 				);
 			}
@@ -148,6 +156,9 @@
 		return App;
 	}(React.Component);
 	
+	App.contextTypes = {
+		store: React.PropTypes.object
+	};
 	function mapStateToProps(state) {
 	
 		//return {
@@ -6219,7 +6230,7 @@
 			value: function render() {
 				return React.createElement(
 					"li",
-					{ className: "paper paper-yellow" },
+					{ className: "paper paper-yellow paper paper-text" },
 					" ",
 					this.props.text
 				);
@@ -23401,6 +23412,68 @@
 /* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.store = undefined;
+	exports.default = configureStore;
+	
+	var _redux = __webpack_require__(40);
+	
+	var _reducer = __webpack_require__(214);
+	
+	var _reducer2 = _interopRequireDefault(_reducer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function configureStore(initialState) {
+	  var store = (0, _redux.createStore)(_reducer2.default, initialState, window.devToolsExtension ? window.devToolsExtension() : undefined);
+	  return store;
+	}
+	var store = exports.store = configureStore({ currentResume: {}, person: {}, languages: {}, categories: {}, educations: {},
+	  technologies: {}, notes: {} });
+
+/***/ },
+/* 214 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	exports.default = function (state, action) {
+		switch (action.type) {
+			case 'SET_STATE':
+				var copyState = Object.assign({}, action.state);
+				copyState.notes = {};
+				return copyState;
+	
+			case 'ADD_NOTE':
+				var copy = Object.assign({}, state);
+				var copiedNotes = Object.assign({}, copy.notes);
+				var value = copiedNotes[action.state];
+				copiedNotes[action.state] = !value;
+				copy.notes = copiedNotes;
+	
+				return copy;
+		}
+		return state;
+	};
+	
+	var _immutable = __webpack_require__(215);
+	
+	function setState(state, newState) {
+		return state.merge(newState);
+	} //Adapted from http://www.theodo.fr/blog/2016/03/getting-started-with-react-redux-and-immutable-a-test-driven-tutorial-part-2/
+
+/***/ },
+/* 215 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/**
 	 *  Copyright (c) 2014-2015, Facebook, Inc.
 	 *  All rights reserved.
@@ -28382,438 +28455,7 @@
 	}));
 
 /***/ },
-/* 214 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.store = undefined;
-	exports.default = configureStore;
-	
-	var _redux = __webpack_require__(40);
-	
-	var _reducer = __webpack_require__(582);
-	
-	var _reducer2 = _interopRequireDefault(_reducer);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function configureStore(initialState) {
-	  var store = (0, _redux.createStore)(_reducer2.default, initialState, window.devToolsExtension ? window.devToolsExtension() : undefined);
-	  return store;
-	}
-	var store = exports.store = configureStore({ currentResume: {}, person: {}, languages: {}, categories: {}, educations: {},
-	  technologies: {}, notes: {} });
-
-/***/ },
-/* 215 */,
-/* 216 */,
-/* 217 */,
-/* 218 */,
-/* 219 */,
-/* 220 */,
-/* 221 */,
-/* 222 */,
-/* 223 */,
-/* 224 */,
-/* 225 */,
-/* 226 */,
-/* 227 */,
-/* 228 */,
-/* 229 */,
-/* 230 */,
-/* 231 */,
-/* 232 */,
-/* 233 */,
-/* 234 */,
-/* 235 */,
-/* 236 */,
-/* 237 */,
-/* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */,
-/* 275 */,
-/* 276 */,
-/* 277 */,
-/* 278 */,
-/* 279 */,
-/* 280 */,
-/* 281 */,
-/* 282 */,
-/* 283 */,
-/* 284 */,
-/* 285 */,
-/* 286 */,
-/* 287 */,
-/* 288 */,
-/* 289 */,
-/* 290 */,
-/* 291 */,
-/* 292 */,
-/* 293 */,
-/* 294 */,
-/* 295 */,
-/* 296 */,
-/* 297 */,
-/* 298 */,
-/* 299 */,
-/* 300 */,
-/* 301 */,
-/* 302 */,
-/* 303 */,
-/* 304 */,
-/* 305 */,
-/* 306 */,
-/* 307 */,
-/* 308 */,
-/* 309 */,
-/* 310 */,
-/* 311 */,
-/* 312 */,
-/* 313 */,
-/* 314 */,
-/* 315 */,
-/* 316 */,
-/* 317 */,
-/* 318 */,
-/* 319 */,
-/* 320 */,
-/* 321 */,
-/* 322 */,
-/* 323 */,
-/* 324 */,
-/* 325 */,
-/* 326 */,
-/* 327 */,
-/* 328 */,
-/* 329 */,
-/* 330 */,
-/* 331 */,
-/* 332 */,
-/* 333 */,
-/* 334 */,
-/* 335 */,
-/* 336 */,
-/* 337 */,
-/* 338 */,
-/* 339 */,
-/* 340 */,
-/* 341 */,
-/* 342 */,
-/* 343 */,
-/* 344 */,
-/* 345 */,
-/* 346 */,
-/* 347 */,
-/* 348 */,
-/* 349 */,
-/* 350 */,
-/* 351 */,
-/* 352 */,
-/* 353 */,
-/* 354 */,
-/* 355 */,
-/* 356 */,
-/* 357 */,
-/* 358 */,
-/* 359 */,
-/* 360 */,
-/* 361 */,
-/* 362 */,
-/* 363 */,
-/* 364 */,
-/* 365 */,
-/* 366 */,
-/* 367 */,
-/* 368 */,
-/* 369 */,
-/* 370 */,
-/* 371 */,
-/* 372 */,
-/* 373 */,
-/* 374 */,
-/* 375 */,
-/* 376 */,
-/* 377 */,
-/* 378 */,
-/* 379 */,
-/* 380 */,
-/* 381 */,
-/* 382 */,
-/* 383 */,
-/* 384 */,
-/* 385 */,
-/* 386 */,
-/* 387 */,
-/* 388 */,
-/* 389 */,
-/* 390 */,
-/* 391 */,
-/* 392 */,
-/* 393 */,
-/* 394 */,
-/* 395 */,
-/* 396 */,
-/* 397 */,
-/* 398 */,
-/* 399 */,
-/* 400 */,
-/* 401 */,
-/* 402 */,
-/* 403 */,
-/* 404 */,
-/* 405 */,
-/* 406 */,
-/* 407 */,
-/* 408 */,
-/* 409 */,
-/* 410 */,
-/* 411 */,
-/* 412 */,
-/* 413 */,
-/* 414 */,
-/* 415 */,
-/* 416 */,
-/* 417 */,
-/* 418 */,
-/* 419 */,
-/* 420 */,
-/* 421 */,
-/* 422 */,
-/* 423 */,
-/* 424 */,
-/* 425 */,
-/* 426 */,
-/* 427 */,
-/* 428 */,
-/* 429 */,
-/* 430 */,
-/* 431 */,
-/* 432 */,
-/* 433 */,
-/* 434 */,
-/* 435 */,
-/* 436 */,
-/* 437 */,
-/* 438 */,
-/* 439 */,
-/* 440 */,
-/* 441 */,
-/* 442 */,
-/* 443 */,
-/* 444 */,
-/* 445 */,
-/* 446 */,
-/* 447 */,
-/* 448 */,
-/* 449 */,
-/* 450 */,
-/* 451 */,
-/* 452 */,
-/* 453 */,
-/* 454 */,
-/* 455 */,
-/* 456 */,
-/* 457 */,
-/* 458 */,
-/* 459 */,
-/* 460 */,
-/* 461 */,
-/* 462 */,
-/* 463 */,
-/* 464 */,
-/* 465 */,
-/* 466 */,
-/* 467 */,
-/* 468 */,
-/* 469 */,
-/* 470 */,
-/* 471 */,
-/* 472 */,
-/* 473 */,
-/* 474 */,
-/* 475 */,
-/* 476 */,
-/* 477 */,
-/* 478 */,
-/* 479 */,
-/* 480 */,
-/* 481 */,
-/* 482 */,
-/* 483 */,
-/* 484 */,
-/* 485 */,
-/* 486 */,
-/* 487 */,
-/* 488 */,
-/* 489 */,
-/* 490 */,
-/* 491 */,
-/* 492 */,
-/* 493 */,
-/* 494 */,
-/* 495 */,
-/* 496 */,
-/* 497 */,
-/* 498 */,
-/* 499 */,
-/* 500 */,
-/* 501 */,
-/* 502 */,
-/* 503 */,
-/* 504 */,
-/* 505 */,
-/* 506 */,
-/* 507 */,
-/* 508 */,
-/* 509 */,
-/* 510 */,
-/* 511 */,
-/* 512 */,
-/* 513 */,
-/* 514 */,
-/* 515 */,
-/* 516 */,
-/* 517 */,
-/* 518 */,
-/* 519 */,
-/* 520 */,
-/* 521 */,
-/* 522 */,
-/* 523 */,
-/* 524 */,
-/* 525 */,
-/* 526 */,
-/* 527 */,
-/* 528 */,
-/* 529 */,
-/* 530 */,
-/* 531 */,
-/* 532 */,
-/* 533 */,
-/* 534 */,
-/* 535 */,
-/* 536 */,
-/* 537 */,
-/* 538 */,
-/* 539 */,
-/* 540 */,
-/* 541 */,
-/* 542 */,
-/* 543 */,
-/* 544 */,
-/* 545 */,
-/* 546 */,
-/* 547 */,
-/* 548 */,
-/* 549 */,
-/* 550 */,
-/* 551 */,
-/* 552 */,
-/* 553 */,
-/* 554 */,
-/* 555 */,
-/* 556 */,
-/* 557 */,
-/* 558 */,
-/* 559 */,
-/* 560 */,
-/* 561 */,
-/* 562 */,
-/* 563 */,
-/* 564 */,
-/* 565 */,
-/* 566 */,
-/* 567 */,
-/* 568 */,
-/* 569 */,
-/* 570 */,
-/* 571 */,
-/* 572 */,
-/* 573 */,
-/* 574 */,
-/* 575 */,
-/* 576 */,
-/* 577 */,
-/* 578 */,
-/* 579 */,
-/* 580 */,
-/* 581 */,
-/* 582 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	exports.default = function (state, action) {
-		switch (action.type) {
-			case 'SET_STATE':
-				var copyState = Object.assign({}, action.state);
-				copyState.notes = {};
-				return copyState;
-	
-			case 'ADD_NOTE':
-				var copy = Object.assign({}, state);
-				var copiedNotes = Object.assign({}, copy.notes);
-				var value = copiedNotes[action.state];
-				copiedNotes[action.state] = !value;
-				copy.notes = copiedNotes;
-	
-				return copy;
-		}
-		return state;
-	};
-	
-	var _immutable = __webpack_require__(213);
-	
-	function setState(state, newState) {
-		return state.merge(newState);
-	} //Adapted from http://www.theodo.fr/blog/2016/03/getting-started-with-react-redux-and-immutable-a-test-driven-tutorial-part-2/
-
-/***/ },
-/* 583 */,
-/* 584 */,
-/* 585 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28822,22 +28464,20 @@
 
 
 /***/ },
-/* 586 */,
-/* 587 */,
-/* 588 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(589);
+	module.exports = __webpack_require__(218);
 	
 
 
 /***/ },
-/* 589 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
 		if(true)
-			module.exports = factory(__webpack_require__(590));
+			module.exports = factory(__webpack_require__(219));
 		else if(typeof define === 'function' && define.amd)
 			define(["firebase"], factory);
 		else {
@@ -29367,7 +29007,7 @@
 	;
 
 /***/ },
-/* 590 */
+/* 219 */
 /***/ function(module, exports) {
 
 	/*! @license Firebase v2.4.2
