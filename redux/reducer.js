@@ -8,7 +8,9 @@ function setState(state, newState) {
 export default function(state, action) {
 	switch (action.type) {
 		case 'SET_STATE':
-			return action.state;
+			let copyState = Object.assign({}, action.state);
+			copyState.notes = {};
+			return copyState;
 
 		case 'ADD_NOTE':
 			let copy = Object.assign({}, state);
