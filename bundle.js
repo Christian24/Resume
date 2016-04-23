@@ -136,34 +136,39 @@
 		}, {
 			key: "render",
 			value: function render() {
+				var _this2 = this;
 	
 				return React.createElement(
 					"div",
 					{ className: "container-fluid" },
-					React.createElement(
-						"div",
-						{ className: "row" },
-						React.createElement("div", { className: "col-md-2" }),
-						React.createElement(
-							"div",
-							{ className: "col-md-8" },
-							React.createElement(
-								ReactCSSTransitionGroup,
-								{ transitionAppear: true, transitionAppearTimeout: 500, transitionName: "fade", transitionEnterTimeout: 500, transitionLeaveTimeout: 300 },
-								React.createElement(Resume, { key: "resume", currentResume: this.props.currentResume, person: this.props.person, languages: this.props.languages,
-									categories: this.props.categories, educations: this.props.educations, technologies: this.props.technologies })
-							)
-						),
-						React.createElement(
-							"div",
-							{ className: "col-md-2" },
-							React.createElement(
-								ReactCSSTransitionGroup,
-								{ transitionAppear: true, transitionAppearTimeout: 500, transitionName: "fade", transitionEnterTimeout: 500, transitionLeaveTimeout: 300 },
-								React.createElement(Paper, { key: "notes", text: this.props.currentResume.notes })
-							)
-						)
-					)
+					function () {
+						if (_this2.props.render) {
+							return React.createElement(
+								"div",
+								{ className: "row" },
+								React.createElement("div", { className: "col-md-2" }),
+								React.createElement(
+									"div",
+									{ className: "col-md-8" },
+									React.createElement(
+										ReactCSSTransitionGroup,
+										{ transitionAppear: true, transitionAppearTimeout: 500, transitionName: "fade", transitionEnterTimeout: 500, transitionLeaveTimeout: 300 },
+										React.createElement(Resume, { key: "resume", currentResume: _this2.props.currentResume, person: _this2.props.person, languages: _this2.props.languages,
+											categories: _this2.props.categories, educations: _this2.props.educations, technologies: _this2.props.technologies })
+									)
+								),
+								React.createElement(
+									"div",
+									{ className: "col-md-2" },
+									React.createElement(
+										ReactCSSTransitionGroup,
+										{ transitionAppear: true, transitionAppearTimeout: 500, transitionName: "fade", transitionEnterTimeout: 500, transitionLeaveTimeout: 300 },
+										React.createElement(Paper, { key: "notes", text: _this2.props.currentResume.notes })
+									)
+								)
+							);
+						}
+					}()
 				);
 			}
 		}]);

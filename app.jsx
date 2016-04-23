@@ -24,23 +24,26 @@ export class App extends React.Component {
 	
 		
 		return (<div className="container-fluid">
-	<div className="row">
+	{(() => { if(this.props.render) {
+		return (<div className="row">
 					<div className="col-md-2"></div>
 						<div className="col-md-8">
 					
 			<ReactCSSTransitionGroup transitionAppear={true} transitionAppearTimeout={500} transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
 					<Resume key="resume" currentResume={this.props.currentResume} person={this.props.person} languages={this.props.languages} 
-		categories={this.props.categories} educations={this.props.educations} technologies={this.props.technologies} />
-		</ReactCSSTransitionGroup>
-		</div>
+	categories={this.props.categories} educations={this.props.educations} technologies={this.props.technologies} />
+	</ReactCSSTransitionGroup>
+	</div>
 		
-	<div className="col-md-2">
+<div className="col-md-2">
 <ReactCSSTransitionGroup transitionAppear={true} transitionAppearTimeout={500} transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
 		<Paper key="notes" text={this.props.currentResume.notes} />
 </ReactCSSTransitionGroup>
 		</div>
 	
-	</div>
+	</div>);
+}
+	})()}
 	</div>);
 	}
 	
