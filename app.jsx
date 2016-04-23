@@ -43,6 +43,14 @@ export class App extends React.Component {
 	
 	</div>);
 }
+else {
+    return (<div className="row">
+	<div className="col-md-2"></div>
+						<div className="col-md-8 paper">
+	
+	<p className="lead">Loading data please wait...</p>
+		</div>				</div>);
+}
 	})()}
 	</div>);
 	}

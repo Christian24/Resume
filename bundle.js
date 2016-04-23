@@ -167,6 +167,22 @@
 									)
 								)
 							);
+						} else {
+							return React.createElement(
+								"div",
+								{ className: "row" },
+								React.createElement("div", { className: "col-md-2" }),
+								React.createElement(
+									"div",
+									{ className: "col-md-8 paper" },
+									React.createElement(
+										"p",
+										{ className: "lead" },
+										"Loading data please wait..."
+									)
+								),
+								"    "
+							);
 						}
 					}()
 				);
