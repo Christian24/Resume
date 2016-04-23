@@ -24,6 +24,15 @@ export class App extends React.Component {
 	
 		
 		return (<div className="container-fluid">
+	<div className="row">
+		<div className="col-md-2" />
+		<div className="col-md-8">
+			<div className="paper">
+			<p className="text-center">This is a small demo project I made to learn React and Redux. Also uses some ES6, Webpack, animation, css and others. The JSON data itself comes from Firebase. You can click on any skill or technology to add it to your notes. Clicking on the item again removes an item from the list again.<br/><br/>The code is available on <a href="https://github.com/Christian24/Resume">GitHub</a>.
+		</p>
+		</div>
+			</div>
+	</div>
 	{(() => { if(this.props.render) {
 		return (<div className="row">
 					<div className="col-md-2"></div>
@@ -45,11 +54,13 @@ export class App extends React.Component {
 }
 else {
     return (<div className="row">
-	<div className="col-md-2"></div>
-						<div className="col-md-8 paper">
-	
-	<p className="lead">Loading data please wait...</p>
-		</div>				</div>);
+	<ReactCSSTransitionGroup transitionAppear={true}  transitionName="fade" transitionAppearTimeout={500} transitionLeaveTimeout={300}  transitionEnterTimeout={500}>
+						<div className="col-md-12 paper" key="loading">
+
+	<p className="lead text-center">Loading data please wait...</p>
+						</div>
+		</ReactCSSTransitionGroup>
+</div>);
 }
 	})()}
 	</div>);

@@ -12,7 +12,7 @@ export default function(state, action) {
 			let newState = Object.assign({}, state);
 			newState.notes = {};
 			newState.render = action.state;
-			console.log(newState);
+		
 			return newState;
 		case 'ADD_NOTE':
 			let copy = Object.assign({}, state);

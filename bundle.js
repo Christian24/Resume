@@ -141,6 +141,33 @@
 				return React.createElement(
 					"div",
 					{ className: "container-fluid" },
+					React.createElement(
+						"div",
+						{ className: "row" },
+						React.createElement("div", { className: "col-md-2" }),
+						React.createElement(
+							"div",
+							{ className: "col-md-8" },
+							React.createElement(
+								"div",
+								{ className: "paper" },
+								React.createElement(
+									"p",
+									{ className: "text-center" },
+									"This is a small demo project I made to learn React and Redux. Also uses some ES6, Webpack, animation, css and others. The JSON data itself comes from Firebase. You can click on any skill or technology to add it to your notes. Clicking on the item again removes an item from the list again.",
+									React.createElement("br", null),
+									React.createElement("br", null),
+									"The code is available on ",
+									React.createElement(
+										"a",
+										{ href: "https://github.com/Christian24/Resume" },
+										"GitHub"
+									),
+									"."
+								)
+							)
+						)
+					),
 					function () {
 						if (_this2.props.render) {
 							return React.createElement(
@@ -171,17 +198,19 @@
 							return React.createElement(
 								"div",
 								{ className: "row" },
-								React.createElement("div", { className: "col-md-2" }),
 								React.createElement(
-									"div",
-									{ className: "col-md-8 paper" },
+									ReactCSSTransitionGroup,
+									{ transitionAppear: true, transitionName: "fade", transitionAppearTimeout: 500, transitionLeaveTimeout: 300, transitionEnterTimeout: 500 },
 									React.createElement(
-										"p",
-										{ className: "lead" },
-										"Loading data please wait..."
+										"div",
+										{ className: "col-md-12 paper", key: "loading" },
+										React.createElement(
+											"p",
+											{ className: "lead text-center" },
+											"Loading data please wait..."
+										)
 									)
-								),
-								"    "
+								)
 							);
 						}
 					}()
@@ -5422,7 +5451,7 @@
 				var newState = Object.assign({}, state);
 				newState.notes = {};
 				newState.render = action.state;
-				console.log(newState);
+	
 				return newState;
 			case 'ADD_NOTE':
 				var copy = Object.assign({}, state);
