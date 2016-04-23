@@ -5,17 +5,30 @@ const Paper = require("./paper.jsx");
 import {connect} from 'react-redux';
 let ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 export class App extends React.Component {
+	constructor(props) {
+		super(props);
+		
+		//this.handleClick = this.handleClick.bind(this);
+	}
+	componentDidUpdate() {
 	
 	
+		
+		//this.context.store.dispatch({
+		//	type: "SHOW",
+		//	state: true
+		//});
+	}
 	render() {
 	
-		console.log(this.context.store.getState());
 		
 		return (<div className="container-fluid">
-			<div className="col-md-2"></div>
-				<div className="col-md-8">
-	<ReactCSSTransitionGroup transitionAppear={true} transitionAppearTimeout={500} transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-			<Resume key="resume" currentResume={this.props.currentResume} person={this.props.person} languages={this.props.languages} 
+	<div className="row">
+					<div className="col-md-2"></div>
+						<div className="col-md-8">
+					
+			<ReactCSSTransitionGroup transitionAppear={true} transitionAppearTimeout={500} transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+					<Resume key="resume" currentResume={this.props.currentResume} person={this.props.person} languages={this.props.languages} 
 		categories={this.props.categories} educations={this.props.educations} technologies={this.props.technologies} />
 		</ReactCSSTransitionGroup>
 		</div>
@@ -24,7 +37,10 @@ export class App extends React.Component {
 <ReactCSSTransitionGroup transitionAppear={true} transitionAppearTimeout={500} transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
 		<Paper key="notes" text={this.props.currentResume.notes} />
 </ReactCSSTransitionGroup>
-		</div></div>);
+		</div>
+	
+	</div>
+	</div>);
 	}
 	
 }
