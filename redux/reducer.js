@@ -6,8 +6,14 @@ export default function(state, action) {
 		case 'SET_STATE':
 			let copyState = Object.assign({}, action.state);
 			copyState.notes = {};
+			copyState.render = false;
 			return copyState;
-
+		case 'SHOW':
+			let newState = Object.assign({}, state);
+			newState.notes = {};
+			newState.render = action.state;
+			console.log(newState);
+			return newState;
 		case 'ADD_NOTE':
 			let copy = Object.assign({}, state);
 			let copiedNotes = Object.assign({},copy.notes);

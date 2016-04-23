@@ -13,11 +13,12 @@ export class App extends React.Component {
 	componentDidUpdate() {
 	
 	
-		
-		//this.context.store.dispatch({
-		//	type: "SHOW",
-		//	state: true
-		//});
+		if(this.props.render == false) {
+			this.context.store.dispatch({
+				type: "SHOW",
+				state: true
+			});
+		}
 	}
 	render() {
 	

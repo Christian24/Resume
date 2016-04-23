@@ -126,10 +126,12 @@
 			key: "componentDidUpdate",
 			value: function componentDidUpdate() {
 	
-				//this.context.store.dispatch({
-				//	type: "SHOW",
-				//	state: true
-				//});
+				if (this.props.render == false) {
+					this.context.store.dispatch({
+						type: "SHOW",
+						state: true
+					});
+				}
 			}
 		}, {
 			key: "render",
@@ -5376,7 +5378,7 @@
 	  return store;
 	}
 	var store = exports.store = configureStore({ currentResume: {}, person: {}, languages: {}, categories: {}, educations: {},
-	  technologies: {}, notes: {} });
+	  technologies: {}, notes: {}, render: false });
 
 /***/ },
 /* 58 */
@@ -5393,8 +5395,14 @@
 			case 'SET_STATE':
 				var copyState = Object.assign({}, action.state);
 				copyState.notes = {};
+				copyState.render = false;
 				return copyState;
-	
+			case 'SHOW':
+				var newState = Object.assign({}, state);
+				newState.notes = {};
+				newState.render = action.state;
+				console.log(newState);
+				return newState;
 			case 'ADD_NOTE':
 				var copy = Object.assign({}, state);
 				var copiedNotes = Object.assign({}, copy.notes);
